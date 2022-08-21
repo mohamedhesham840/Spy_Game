@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i=new Intent(getBaseContext(),HomeActivity.class);
                 startActivity(i);
+                //hi ana lsa mt8yer
             }
         });
     }
