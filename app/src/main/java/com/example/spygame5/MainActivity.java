@@ -5,21 +5,54 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+
+    // declarations
+    ImageView info_imv;
+    ImageView log_imv;
+    TextView  rules_tv;
+    boolean   visible = false; // for appear/disappear rules text view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();   // make the app full screen
-        ImageView image5=findViewById(R.id.imageView5);
-        image5.setOnClickListener(new View.OnClickListener() {
+
+        // inflate
+        log_imv  = findViewById(R.id.log_id);
+        info_imv = findViewById(R.id.info_id);
+        rules_tv = findViewById(R.id.rules_id);
+
+        // events
+        log_imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getBaseContext(),HomeActivity.class);
                 startActivity(i);
-                //hi ana lsa mt8yer
+
+            }
+        });
+
+        info_imv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!visible)
+                {
+                    rules_tv.setVisibility(View.VISIBLE);
+                    visible = true;
+                }
+                else
+                {
+                    rules_tv.setVisibility(View.INVISIBLE);
+                    visible = false;
+
+                }
+
             }
         });
     }
