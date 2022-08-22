@@ -14,6 +14,7 @@ public class Player {
     public static final String PLAYER_ROLE_SPY = "spy";
     public static final String PLAYER_ROLE_LOCAL= "local";
 
+
     private String name;
     private String role; // local | spy
 

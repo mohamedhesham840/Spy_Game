@@ -39,14 +39,14 @@
         android:id="@+id/log_id"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginBottom="296dp"
 
         android:clickable="true"
         android:outlineAmbientShadowColor="#BBB"
         android:tint="@color/color2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_lock_power_off" />
 
