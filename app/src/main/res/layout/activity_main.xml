@@ -17,7 +17,7 @@
         android:clickable="true"
 
         android:layout_marginEnd="16dp"
-        android:background="#34302525"
+        android:background="@color/none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_help" />
@@ -37,15 +37,17 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="90dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="352dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="292dp"
+
+        android:clickable="true"
         android:outlineAmbientShadowColor="#BBB"
-        android:tint="#FFFFFF"
+        android:tint="@color/color2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_power_off" />
 
     <TextView
@@ -57,7 +59,7 @@
         android:clickable="true"
         android:text="Each player except one gets a card with a location and does not know who the spy is. One of the players gets a spy card and does not know the location. Until the time expires, players take turns asking each other questions, trying to find the spy. The spy tries to stay undetected or guess the location."
         android:textColor="@color/white"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
