@@ -12,4 +12,7 @@
     <color name="color2">#A2D1E3</color>
     <color name="color3">#C1C1E2F4</color>
     <color name="colorInHome">#D6434C</color>
+    <color name="valid">#DAB2141B</color>
+    <color name="notValid">#2AB2141B</color>
+
 </resources>
