@@ -14,15 +14,18 @@ import java.util.Random;
 
 /**
  *
+ *
  * @author mohamed
+ *
  */
 public class Game {
 
+
     private static int numOfPlayers;
     private static int numOfSpies;
+    private static int time;
     private static Player players[] = new Player[numOfPlayers];
-
-    private static String categories[]; // sets / packs
+    private static String categories[];     // sets / packs
     private static String catLocations[][]; // locations of each categories
     private static int categoryIndex; // random from categories   list
     private static int locationsIndex;// random from catLocations list
