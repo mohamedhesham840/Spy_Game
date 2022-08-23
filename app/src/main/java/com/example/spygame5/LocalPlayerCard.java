@@ -27,7 +27,7 @@ public class LocalPlayerCard extends AppCompatActivity {
 
         if(index != -1) {
 
-            playerRule_tv.setText(Game.getCategories()[Game.getCategoryIndex()] + "\nLocation: " + Game.getCatLocations()[Game.getCategoryIndex()][Game.getLocationsIndex()]);
+            playerRule_tv.setText(Game.getCatLocations()[Game.getCategoryIndex()][Game.getLocationsIndex()]);
             playerNote_tv.setText(Game.getLocalPlayerNote());
 
             next_btn.setOnClickListener(new View.OnClickListener() {

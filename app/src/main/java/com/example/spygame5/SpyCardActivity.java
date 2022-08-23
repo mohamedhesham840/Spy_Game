@@ -25,25 +25,24 @@ public class SpyCardActivity extends AppCompatActivity {
         // on onCreate method
         Intent data = getIntent();
         int index = data.getIntExtra("player index", -1);
+        if(index != -1) {
+
+            playerRule_tv.setText("u are a spy"); // temp
+            playerNote_tv.setText(Game.getSpyPlayerNote());
+
+            next_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    setResult(2);
+                    finish();// close the activity
 
 
-        playerRule_tv.setText("u are a spy"); // temp
-        playerNote_tv.setText(Game.getSpyPlayerNote());
-
-        next_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                setResult(2);
-                finish();// close the activity
+                }
+            });
 
 
-
-            }
-        });
-
-
-
+        }
 
 
     }

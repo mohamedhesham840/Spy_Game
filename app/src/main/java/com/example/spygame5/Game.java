@@ -75,30 +75,21 @@ public class Game  {
 
     // transfer data and navigate to the unknown card activity (intents and events)
     public static Intent generateGameIntent(Context packageContext, Class<?> cls) {
-//        getDataFromDatabase();
-//        generateRandomInfo();
-//        prepareElements();
-//        homeEvents();
-//        to unknown card activity
-//        handle there events and show player cards -> done
-//        timer activity
-//        result activity
-
 
 
         // testing
         numOfPlayers = 3;
         spyPlayerNote = "Try to Understand what location the locals are talking about";
-        localPlayerNote = "fuck u";
+        localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
         players[0] = new Player("player1", Player.PLAYER_ROLE_LOCAL);
         players[1] = new Player("player2", Player.PLAYER_ROLE_SPY);
         players[2] = new Player("player3", Player.PLAYER_ROLE_LOCAL);
 
-        categoryIndex = 0;
+        categoryIndex  = 0;
         locationsIndex = 1;
         catLocations[0][0]= "cairo";
         catLocations[0][1]= "alex";
-        categories[0]  = "towns";
+        categories[0]     = "towns";
         Intent toUnknownCard = new Intent(packageContext, cls);
         return toUnknownCard;
 
