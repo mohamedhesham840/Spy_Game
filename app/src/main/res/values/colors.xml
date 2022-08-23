@@ -14,5 +14,6 @@
     <color name="colorInHome">#D6434C</color>
     <color name="valid">#DAB2141B</color>
     <color name="notValid">#2AB2141B</color>
-
+    <color name="CardsBackground">#D3000000</color>
+    <color name="lastCardButtonColor">#32000000</color>
 </resources>

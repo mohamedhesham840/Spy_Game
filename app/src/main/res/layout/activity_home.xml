@@ -14,10 +14,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/color2"
+            android:text="-"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -70,6 +82,21 @@
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toEndOf="@+id/button22"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:background="#238D9BA3"
+            android:text="+"
+            android:textColor="#7194A3"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
             android:id="@+id/button20"
@@ -158,7 +185,7 @@
             android:id="@+id/textView7"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="12dp"
             android:background="@color/none"
             android:text="3"
             android:textAlignment="center"
@@ -167,7 +194,92 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintVertical_bias="0.17" />
+            app:layout_constraintVertical_bias="0.173" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="168dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="408dp"
+            android:text="Time"
+            android:textColor="@color/colorInHome"
+            android:textSize="27dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/none"
+            android:text="3"
+            android:textAlignment="center"
+            android:textColor="@color/color2"
+            android:textSize="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.008" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="110dp"
+            android:layout_height="27dp"
+            android:buttonTint="@color/colorInHome"
+            android:checked="false"
+            android:text="Countries"
+            android:textColor="@color/color2"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="110dp"
+            android:layout_height="27dp"
+            android:buttonTint="@color/colorInHome"
+            android:checked="false"
+            android:text="Places"
+            android:textColor="@color/color2"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="110dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="20dp"
+            android:buttonTint="@color/colorInHome"
+            android:checked="false"
+            android:text="Geography"
+            android:textColor="@color/color2"
+            app:layout_constraintBottom_toTopOf="@+id/button17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="110dp"
+            android:layout_height="27dp"
+            android:buttonTint="@color/colorInHome"
+            android:checked="false"
+            android:text="Objects"
+            android:textColor="@color/color2"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
