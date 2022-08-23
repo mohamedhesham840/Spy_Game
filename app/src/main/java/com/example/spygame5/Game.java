@@ -57,14 +57,35 @@ public class Game  {
     // display on card
     private static String localPlayerNote; // message for the local player
     private static String spyPlayerNote; // message for the spy player
+/*
 
+        BackEnd Algorithm:
 
-    // transfer data and navigate to the unknown card activity (intents and events)
-    /*
-        data -> {"num of players": numOfPlayers, "num of spies": numOfSpies, "location category":
+        1- getDataFromDatabase();
+        2- generateRandomInfo();
+        3- prepareElements();
+        4- homeEvents();
+        5- to unknown card activity
+        6- handle there events and show player cards -> done
+        7- timer activity
+        8- result activity
+
 
      */
+
+    // transfer data and navigate to the unknown card activity (intents and events)
     public static Intent generateGameIntent(Context packageContext, Class<?> cls) {
+//        getDataFromDatabase();
+//        generateRandomInfo();
+//        prepareElements();
+//        homeEvents();
+//        to unknown card activity
+//        handle there events and show player cards -> done
+//        timer activity
+//        result activity
+
+
+
         // testing
         numOfPlayers = 3;
         spyPlayerNote = "Try to Understand what location the locals are talking about";
@@ -78,60 +99,17 @@ public class Game  {
         catLocations[0][0]= "cairo";
         catLocations[0][1]= "alex";
         categories[0]  = "towns";
-// --------
         Intent toUnknownCard = new Intent(packageContext, cls);
-        // timer
         return toUnknownCard;
-
 
 
 
     }
 
-    // --------------------------------------------------
+    // ----------------------implementation of these two methods in there activities------
 
     // events and elements on the unknown card activity : this code will be written inside unknown card activity
     public  void onUnknownCardActivity() {
-//
-//        int  index = 0;
-//        final int LOCAL_CARD_REQUEST_CODE = 1;
-//        final int SPY_CARD_REQUEST_CODE = 1;
-//        Button displayDetail_btn;
-//        TextView playerName_tv;
-//        // on onCreate methode
-//        Intent data = getIntent();
-//        Player players[] = (Player[]) data.getSerializableExtra("players array");
-//        int numOfPlayers = data.getIntExtra   ("num of players", 0);
-//        String category  = data.getStringExtra("location category");
-//        String location  = data.getStringExtra("actual location" );
-//        // inflate
-//        displayDetail_btn = findViewById(R.id.id);
-//        playerName_tv     = findViewById(R.id.id);
-//
-//        if(index < numOfPlayers){
-//            playerName_tv.setText(players[index].getName());
-//            // event
-//            displayDetail_btn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    if(players[index].getRole() == Player.PLAYER_ROLE_LOCAL){
-//                        Intent toLocalCard = new Intent(getBaseContext(), LocalPlayerCard.class);
-//                        toLocalCard.putExtra("player index", index++);
-//                        startActivityForResult(toLocalCard,LOCAL_CARD_REQUEST_CODE )
-//                    }
-//                    else if(players[index].getRole() == Player.PLAYER_ROLE_SPY){
-//                        Intent toLocalCard = new Intent(getBaseContext(), SpyCard.class);
-//                        toLocalCard.putExtra("player index", index++);
-//                        startActivityForResult(toLocalCard,SPY_CARD_REQUEST_CODE);
-//                    }
-//                }
-//            });
-//        }
-//        else{
-//            // error
-//
-//        }
-
 
     }
 
@@ -142,67 +120,8 @@ public class Game  {
 
     public  void onDisplayCardActivity() {
 
-//        // declaration
-//        Button   next_btn;
-//        TextView playerNote_tv;
-//        TextView playerRule_tv;
-//
-//        // on onCreate method
-//        Intent data = getIntent();
-//        int index = data.getIntExtra("player index", 0);
-//
-//        // on LocalCardActivity
-//        next_btn = findViewById(R.id.id);
-//        playerNote_tv = findViewById(R.id.id);
-//        playerRule_tv = findViewById(R.id.id);
-//
-//        playerRule_tv.setText(Game.categories[Game.categoryIndex] + "\nLocation: " + Game.catLocations[categoryIndex][Game.locationsIndex]);
-//        playerNote_tv.setText(Game.localPlayerNote);
-//
-//        next_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(index < Game.numOfPlayers){
-//
-//                    setResult(1);
-//
-//
-//                }else{// timer activity
-//                    Intent toTimerActivity = new Intent(getBaseContext(), TimerActivity.class);
-//                    startActivity(toTimerActivity);
-//                }
-//                finish();
-//            }
-//        });
-//
-//
-//        // on SpyCardActivity
-//
-//
-//        next_btn = findViewById(R.id.id);
-//        playerNote_tv = findViewById(R.id.id);
-//        playerRule_tv = findViewById(R.id.id);
-//
-//        playerRule_tv.setText("Spy"); // temp
-//        playerNote_tv.setText(Game.spyPlayerNote);
-//
-//        next_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(index < Game.numOfPlayers){
-//
-//                    setResult(1);
-//
-//
-//                }else{// timer activity
-//                    Intent toTimerActivity = new Intent(getBaseContext(), TimerActivity.class);
-//                    startActivity(toTimerActivity);
-//                }
-//                finish();
-//            }
-//        });
-
     }
+
 
 
     // --------------------------------------------------
@@ -235,14 +154,14 @@ public class Game  {
 
 
     // set default data to database
-    public  void setDefaultDatabase() {
+    public static  void setDefaultDatabase() {
 
     }
     // --------------------------------------------------
 
     // get default data from database into the attributes : categories,
     // catLocations, numOfPlayers, numOfSpies,... , etc
-    public  void getDataFromDatabase() {
+    public static void getDataFromDatabase() {
 
     }
 
