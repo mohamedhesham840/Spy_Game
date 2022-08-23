@@ -9,9 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SpyGame5">
-        <activity android:name=".HomeActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        <activity
+            android:name=".SpyCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TimerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalPlayerCard"
+            android:exported="false" />
+        <activity
+            android:name=".UnknownCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

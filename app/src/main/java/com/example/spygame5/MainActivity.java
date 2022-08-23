@@ -12,9 +12,12 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     // declarations
+    // act as button
     ImageView info_imv;
-    ImageView log_imv;
+    ImageView login_imv;
     TextView  rules_tv;
+
+    // others
     boolean   visible = false; // for appear/disappear rules text view
 
     @Override
@@ -24,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();   // make the app full screen
 
         // inflate
-        log_imv  = findViewById(R.id.log_id);
+        login_imv  = findViewById(R.id.log_id);
         info_imv = findViewById(R.id.info_id);
         rules_tv = findViewById(R.id.rules_id);
 
         // events
-        log_imv.setOnClickListener(new View.OnClickListener() {
+        login_imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getBaseContext(),HomeActivity.class);
