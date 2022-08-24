@@ -41,11 +41,13 @@ public class Game  {
     // game attributes
     private static int numOfPlayers;
     private static int numOfSpies;
-    private static int numOfCategories;
     private static int time;
-    private static Player players[]    = new Player[maxNumOfPlayers];
-    private static ArrayList<String>checkCategories;
-    private static String categories[] = new String[maxNumOfCategories];     // sets / packs
+
+    private static Player players[]= new Player[maxNumOfPlayers];
+    private static ArrayList<String>checkedCategories;
+    private static ArrayList<String>categories;
+    private static int numOfCategories;// store actual size of categories
+    private static int numOfLocations;// store actual size of all categories
     private static String catLocations [][] = new String[maxNumOfCategories][maxNumOfLocations];
     private static int categoryIndex; // random from categories   list
     private static int locationsIndex;// random from catLocations list
@@ -86,20 +88,21 @@ public class Game  {
         numOfPlayers = 7;
         numOfSpies = 3;
         numOfCategories = 4;
+        numOfLocations = 3;
         spyPlayerNote = "Try to Understand what location the locals are talking about";
         localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
-        players[0] = new Player("player1", Player.PLAYER_ROLE_LOCAL);
-        players[1] = new Player("player2", Player.PLAYER_ROLE_SPY);
-        players[2] = new Player("player3", Player.PLAYER_ROLE_LOCAL);
-        players[3] = new Player("player4", Player.PLAYER_ROLE_LOCAL);
-        players[4] = new Player("player5", Player.PLAYER_ROLE_SPY);
-        players[5] = new Player("player6", Player.PLAYER_ROLE_LOCAL);
-        players[6] = new Player("player7", Player.PLAYER_ROLE_SPY);
+//        players[0] = new Player("player1", Player.PLAYER_ROLE_LOCAL);
+//        players[1] = new Player("player2", Player.PLAYER_ROLE_SPY);
+//        players[2] = new Player("player3", Player.PLAYER_ROLE_LOCAL);
+//        players[3] = new Player("player4", Player.PLAYER_ROLE_LOCAL);
+//        players[4] = new Player("player5", Player.PLAYER_ROLE_SPY);
+//        players[5] = new Player("player6", Player.PLAYER_ROLE_LOCAL);
+//        players[6] = new Player("player7", Player.PLAYER_ROLE_SPY);
 
 
 
-        categoryIndex = 1; // random
-        locationsIndex= 2; // random
+//        categoryIndex = 1; // random
+//        locationsIndex= 2; // random
 
         catLocations[0][0]= "Ain Shams university";
         catLocations[0][1]= "Cairo university" ;
@@ -113,8 +116,7 @@ public class Game  {
         catLocations[3][0]= "one" ;
         catLocations[3][1]= "two";
         catLocations[3][2]= "three";
-
-
+        generateRandomInfo();
 
         Intent toUnknownCard = new Intent(packageContext, cls);
         return toUnknownCard;
@@ -148,14 +150,43 @@ public class Game  {
          generate random index for [categoryIndex][locationIndex]
          henawy
      */
-    public  void generateRandomInfo() {
+
+
+    public static void generateRandomInfo() {
+
+        Random rand = new Random();
+        for (int i = 0; i < numOfPlayers; i++) {
+
+            players[i] = new Player("player" + (i + 1), "local");
+        }
+
+        int x = 0;
+        while (x < numOfSpies) {
+            int i = rand.nextInt(numOfPlayers);
+            if (!players[i].getRole().equals("spy")) {
+                players[i].setRole("spy");
+                x++;
+            }
+
+        }
+        int categoryIndex = rand.nextInt(numOfCategories);
+        int locationsIndex = rand.nextInt(numOfLocations);
+        String result = catLocations[categoryIndex][locationsIndex];
+
+        for (int i = 0; i < numOfPlayers; i++) {
+            if (players[i].getRole().equals("local")) {
+                System.out.println(players[i].getName() + " " + result);
+
+            } else {
+                System.out.println(players[i].getName() + " " + players[i].getRole());
+            }
+        }
+
 
     }
 
 
-
-
-    /*
+        /*
      *
      * called in result activity to display name of spy players & nam of local
      * players
@@ -262,12 +293,20 @@ public class Game  {
         Game.localPlayerNote = localPlayerNote;
     }
 
-    public static String[] getCategories() {
+    public static ArrayList<String> getCheckCategories() {
+        return checkedCategories;
+    }
+
+    public static ArrayList<String> getCategories() {
         return categories;
     }
 
-    public static void setCategories(String[] categories) {
+    public static void setCategories(ArrayList<String> categories) {
         Game.categories = categories;
+    }
+
+    public static void setCheckCategories(ArrayList<String> checkCategories) {
+        Game.checkedCategories = checkCategories;
     }
 
     public static String[][] getCatLocations() {
