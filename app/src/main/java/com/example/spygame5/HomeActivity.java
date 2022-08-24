@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         start_btn = findViewById(R.id.start_btn_id);
 
 
@@ -29,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent temp = Game.generateGameIntent(getBaseContext(), UnknownCardActivity.class);
+
                 startActivity(temp);
             }
         });

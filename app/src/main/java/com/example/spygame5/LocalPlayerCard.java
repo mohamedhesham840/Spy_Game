@@ -16,6 +16,7 @@ public class LocalPlayerCard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_local_player_card);
         // inflate
         next_btn = findViewById(R.id.localNext_button_id);

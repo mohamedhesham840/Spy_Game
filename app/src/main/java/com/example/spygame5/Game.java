@@ -44,11 +44,16 @@ public class Game  {
     private static int numOfCategories;
     private static int time;
     private static Player players[]    = new Player[maxNumOfPlayers];
+    private static ArrayList<String>checkCategories;
     private static String categories[] = new String[maxNumOfCategories];     // sets / packs
-    private static String catLocations[][] = new String[maxNumOfCategories][maxNumOfLocations]; // locations of each categories
+    private static String catLocations [][] = new String[maxNumOfCategories][maxNumOfLocations];
     private static int categoryIndex; // random from categories   list
     private static int locationsIndex;// random from catLocations list
 
+
+
+
+    // -------------------------------
 
 
 
@@ -62,9 +67,9 @@ public class Game  {
         BackEnd Algorithm:
 
         1- getDataFromDatabase();
-        2- generateRandomInfo();
         3- prepareElements();
         4- homeEvents();
+        5- generateRandomInfo();
         5- to unknown card activity
         6- handle there events and show player cards -> done
         7- timer activity
@@ -78,18 +83,39 @@ public class Game  {
 
 
         // testing
-        numOfPlayers = 3;
+        numOfPlayers = 7;
+        numOfSpies = 3;
+        numOfCategories = 4;
         spyPlayerNote = "Try to Understand what location the locals are talking about";
         localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
         players[0] = new Player("player1", Player.PLAYER_ROLE_LOCAL);
         players[1] = new Player("player2", Player.PLAYER_ROLE_SPY);
         players[2] = new Player("player3", Player.PLAYER_ROLE_LOCAL);
+        players[3] = new Player("player4", Player.PLAYER_ROLE_LOCAL);
+        players[4] = new Player("player5", Player.PLAYER_ROLE_SPY);
+        players[5] = new Player("player6", Player.PLAYER_ROLE_LOCAL);
+        players[6] = new Player("player7", Player.PLAYER_ROLE_SPY);
 
-        categoryIndex  = 0;
-        locationsIndex = 1;
-        catLocations[0][0]= "cairo";
-        catLocations[0][1]= "alex";
-        categories[0]     = "towns";
+
+
+        categoryIndex = 1; // random
+        locationsIndex= 2; // random
+
+        catLocations[0][0]= "Ain Shams university";
+        catLocations[0][1]= "Cairo university" ;
+        catLocations[0][2]=  "Azhar univirsity";
+        catLocations[1][0]= "Alex" ;
+        catLocations[1][1]= "Cairo";
+        catLocations[1][2]= "Aswan" ;
+        catLocations[2][0]= "A" ;
+        catLocations[2][1]= "B";
+        catLocations[2][2]= "C" ;
+        catLocations[3][0]= "one" ;
+        catLocations[3][1]= "two";
+        catLocations[3][2]= "three";
+
+
+
         Intent toUnknownCard = new Intent(packageContext, cls);
         return toUnknownCard;
 
@@ -125,6 +151,7 @@ public class Game  {
     public  void generateRandomInfo() {
 
     }
+
 
 
 
@@ -178,6 +205,7 @@ public class Game  {
     // default data ( called after getDefaultDatabase )
     // push the data into home elements- note : this could be bart of activity code
     public  void prepareElements() {
+
 
     }
 
