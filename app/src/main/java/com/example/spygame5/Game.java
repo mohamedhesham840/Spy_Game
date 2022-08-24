@@ -31,7 +31,7 @@ import java.util.Random;
  *
  */
 public class Game  {
-
+    // 1
     // finals
     // these attributes for array declaration
     private static final int maxNumOfPlayers = 15;
