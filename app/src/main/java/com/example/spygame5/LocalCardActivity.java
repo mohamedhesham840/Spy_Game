@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class spyCardActivity extends AppCompatActivity {
+public class LocalCardActivity extends AppCompatActivity {
 
     // declaration
     Button next_btn;
@@ -17,33 +17,35 @@ public class spyCardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spy_card);
 
-        next_btn      = findViewById(R.id.spyNext_button_id);
-        playerNote_tv = findViewById(R.id.spyNote_textView_id);
-        playerRule_tv = findViewById(R.id.spyRule_textView_id);
+        setContentView(R.layout.activity_local_card);
+        // inflate
+        next_btn = findViewById(R.id.localNext_button_id);
+        playerNote_tv = findViewById(R.id.localNote_textView_id);
+        playerRule_tv = findViewById(R.id.localRule_textView_id);
 
-        // on onCreate method
         Intent data = getIntent();
         int index = data.getIntExtra("player index", -1);
+
         if(index != -1) {
 
-            playerRule_tv.setText("u are a spy"); // temp
-            playerNote_tv.setText(Game.getSpyPlayerNote());
+            playerRule_tv.setText(Game.getCatLocations()[Game.getCategoryIndex()][Game.getLocationsIndex()]);
+            playerNote_tv.setText(Game.getLocalPlayerNote());
 
             next_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    setResult(2);
+                    setResult(1);
                     finish();// close the activity
 
 
                 }
             });
 
-
         }
+
+
 
 
     }
