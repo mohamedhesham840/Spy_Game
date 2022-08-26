@@ -74,6 +74,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.spygame5.database.DataBaseHelper;
+
 public class HomeActivity extends AppCompatActivity {
     // declaration 
     // buttons
@@ -125,7 +127,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
         // get data from database and, set it into Game attributes
-        Game.getDataFromDatabase();
+        DataBaseHelper db = new DataBaseHelper(HomeActivity.this);
+        Game.getDataFromDatabase(db);
         // put data on the view elements
         Game.prepareElements(numOfPlayers_tv,numOfSpies_tv,timer_tv);
         // handling  home activity events

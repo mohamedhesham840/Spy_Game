@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_png"
+    android:foregroundTint="#FFFFFF"
     android:scaleType="fitStart"
     tools:context=".MainActivity">
 
@@ -13,11 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:tint="@color/color2"
-        android:clickable="true"
-
         android:layout_marginEnd="16dp"
         android:background="@color/none"
+
+        android:clickable="true"
+        android:tint="@color/color2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_help" />
@@ -28,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@color/color1"
         android:clickable="true"
         android:tint="@color/color2"
-        android:background="@color/color1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
@@ -39,14 +40,14 @@
         android:id="@+id/log_id"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginBottom="104dp"
 
         android:clickable="true"
         android:outlineAmbientShadowColor="#BBB"
         android:tint="@color/color2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_lock_power_off" />
 
@@ -65,6 +66,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone" />
+
+    <EditText
+        android:id="@+id/et_category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="@string/NewCategory"
+        android:inputType="textPersonName"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="94dp" />
+
+    <EditText
+        android:id="@+id/et_element"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:foregroundTint="#FFFFFF"
+        android:hint="@string/NewElement"
+        android:inputType="textPersonName"
+        android:textColorHint="#FDFDFD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_category" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="100dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_element" />
+
+    <Button
+        android:id="@+id/btn_viewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
+        android:text="View All"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_element" />
 
 
 </android.support.constraint.ConstraintLayout>

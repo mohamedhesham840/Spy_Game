@@ -10,9 +10,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="player">testing</string>
-    <string name="activity_spy_card">testing 2</string>
-    <string name="tap">testing 3</string>
-
-
+    <string name="NewElement">New Element</string>
+    <string name="NewCategory">New Category</string>
 </resources>

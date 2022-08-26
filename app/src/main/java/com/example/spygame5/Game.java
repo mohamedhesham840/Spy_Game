@@ -2,10 +2,10 @@ package com.example.spygame5;
 
 import android.content.Context;
 
-import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,15 +13,11 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.widget.Toast;
+import com.example.spygame5.database.DataBaseHelper;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 /*
@@ -159,34 +155,20 @@ public class Game  extends AppCompatActivity {
 
     // get default data from database into the attributes : categories,
     // catLocations, numOfPlayers, numOfSpies,... , etc
-    public static void getDataFromDatabase() {
+    public static void getDataFromDatabase(DataBaseHelper db) {
 
-        // testing
-        // default
-        numOfPlayers    = 3;
-        numOfSpies      = 1;
-        time = 1;
+        List<Pair<String, String>> all = db.getAllCategories();
+        HashMap<String, List<String>> data = new HashMap<>();
 
-        spyPlayerNote = "Try to Understand what location the locals are talking about";
-        localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
-
-
-        // depend on database
-        numOfCategories = 4;
-        numOfLocations  = 3;
-        catLocations[0][0]=  "Country 1";
-        catLocations[0][1]=  "Country 2" ;
-        catLocations[0][2]=  "Country 3";
-        catLocations[1][0]= "Places 1" ;
-        catLocations[1][1]= "Places 2";
-        catLocations[1][2]= "Places 3" ;
-        catLocations[2][0]= "Objects 1" ;
-        catLocations[2][1]= "Objects 2";
-        catLocations[2][2]= "Objects 3" ;
-        catLocations[3][0]= "Geography 1" ;
-        catLocations[3][1]= "Geography 2";
-        catLocations[3][2]= "Geography 3";
-
+        int i = 0, j = 0;
+        for (String key : data.keySet()) {
+//            categories[i] = key;
+            for (String element : data.get(key)) {
+                catLocations[i][j++] = element;
+            }
+            i++;
+            j = 0;
+        }
 
     }
 
