@@ -9,35 +9,51 @@ import android.widget.TextView;
 
 public class spyCardActivity extends AppCompatActivity {
 
-    // declaration
-    Button next_btn;
-    TextView playerNote_tv;
-    TextView playerRule_tv;
 
+    //
+    private Button   next_btn     ;
+    private TextView playerNote_tv;
+    private TextView playerRule_tv;
+
+    // store getIntExtra content(player index)
+    private int index;
+
+    // used if there's different cases of backing to previous activity
+    public static final int RESULT_CODE_CASE1 = 1;
+
+    //-------------------*------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spy_card);
+        getSupportActionBar().hide();   // make the app full screen
 
-        next_btn      = findViewById(R.id.spyNext_button_id);
-        playerNote_tv = findViewById(R.id.spyNote_textView_id);
-        playerRule_tv = findViewById(R.id.spyRule_textView_id);
+        // inflate
+        next_btn     = findViewById(R.id.spyNext_button_id);
+        playerNote_tv= findViewById(R.id.spyNote_textView_id);
+        playerRule_tv= findViewById(R.id.spyRule_textView_id);
 
-        // on onCreate method
+        // used to get data ( we need index from the previous activity)
         Intent data = getIntent();
-        int index = data.getIntExtra("player index", -1);
+        index = data.getIntExtra(tapActivtiy.PLAYER_INDEX, -1);
+
+
         if(index != -1) {
 
+
+            //messages for the player
             playerRule_tv.setText("u are a spy"); // temp
             playerNote_tv.setText(Game.getSpyPlayerNote());
 
+            //navigate to tap activity
             next_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    setResult(2);
-                    finish();// close the activity
-
+                    // back to tapActivity
+                    setResult(RESULT_CODE_CASE1);
+                    // close the activity
+                    finish();
 
                 }
             });

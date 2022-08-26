@@ -9,5 +9,7 @@ public class wordAndPlayerNameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_and_player_name);
+        getSupportActionBar().hide();   // make the app full screen
+
     }
 }

@@ -92,38 +92,7 @@ public class Game  extends AppCompatActivity {
     public static Intent generateGameIntent(Context packageContext, Class<?> cls) {
 
 
-        // testing
-        numOfPlayers = 5;
-        numOfSpies = 2;
-        numOfCategories = 4;
-        numOfLocations = 3;
-        spyPlayerNote = "Try to Understand what location the locals are talking about";
-        localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
-//        players[0] = new Player("player1", Player.PLAYER_ROLE_LOCAL);
-//        players[1] = new Player("player2", Player.PLAYER_ROLE_SPY);
-//        players[2] = new Player("player3", Player.PLAYER_ROLE_LOCAL);
-//        players[3] = new Player("player4", Player.PLAYER_ROLE_LOCAL);
-//        players[4] = new Player("player5", Player.PLAYER_ROLE_SPY);
-//        players[5] = new Player("player6", Player.PLAYER_ROLE_LOCAL);
-//        players[6] = new Player("player7", Player.PLAYER_ROLE_SPY);
 
-
-
-//        categoryIndex = 1; // random
-//        locationsIndex= 2; // random
-
-        catLocations[0][0]= "Ain Shams university";
-        catLocations[0][1]= "Cairo university" ;
-        catLocations[0][2]=  "Azhar univirsity";
-        catLocations[1][0]= "Alex" ;
-        catLocations[1][1]= "Cairo";
-        catLocations[1][2]= "Aswan" ;
-        catLocations[2][0]= "A" ;
-        catLocations[2][1]= "B";
-        catLocations[2][2]= "C" ;
-        catLocations[3][0]= "one" ;
-        catLocations[3][1]= "two";
-        catLocations[3][2]= "three";
         generateRandomInfo();
 
         Intent toUnknownCard = new Intent(packageContext, cls);
@@ -133,21 +102,7 @@ public class Game  extends AppCompatActivity {
 
     }
 
-    // ----------------------implementation of these two methods in there activities------
 
-    // events and elements on the unknown card activity : this code will be written inside unknown card activity
-    public  void onUnknownCardActivity() {
-
-    }
-
-    // --------------------------------------------------
-
-    // display the cards details & deal with events (called in spy card & local
-    // card
-
-    public  void onDisplayCardActivity() {
-
-    }
 
 
 
@@ -156,7 +111,7 @@ public class Game  extends AppCompatActivity {
 
          create players objects and assign random rule and name for each player
          generate random index for [categoryIndex][locationIndex]
-         henawy
+
      */
 
 
@@ -200,34 +155,41 @@ public class Game  extends AppCompatActivity {
     }
 
 
-    /*
-     *
-     * called in result activity to display name of spy players & nam of local
-     * players
-     * deals with events if exist
-     *
-     */
-    public  void displayResult() {
-
-    }
-
-
-
-    // --------------------------------------------------
-
-
-    // set default data to database
-    public static  void setDefaultDatabase() {
-
-    }
     // --------------------------------------------------
 
     // get default data from database into the attributes : categories,
     // catLocations, numOfPlayers, numOfSpies,... , etc
     public static void getDataFromDatabase() {
 
+        // testing
+        // default
+        numOfPlayers    = 3;
+        numOfSpies      = 1;
+        time = 1;
+
+        spyPlayerNote = "Try to Understand what location the locals are talking about";
+        localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
+
+
+        // depend on database
+        numOfCategories = 4;
+        numOfLocations  = 3;
+        catLocations[0][0]=  "Country 1";
+        catLocations[0][1]=  "Country 2" ;
+        catLocations[0][2]=  "Country 3";
+        catLocations[1][0]= "Places 1" ;
+        catLocations[1][1]= "Places 2";
+        catLocations[1][2]= "Places 3" ;
+        catLocations[2][0]= "Objects 1" ;
+        catLocations[2][1]= "Objects 2";
+        catLocations[2][2]= "Objects 3" ;
+        catLocations[3][0]= "Geography 1" ;
+        catLocations[3][1]= "Geography 2";
+        catLocations[3][2]= "Geography 3";
+
 
     }
+
 
     // --------------------------------------------------
     /* user customization
@@ -369,99 +331,6 @@ public class Game  extends AppCompatActivity {
                 }
             }
         });
-//        countries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b == true) {
-//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-//                    checkedCategories.add(countries.getText().toString());
-//
-//                }
-//                else if (b==false) {
-//                    if (checkedCategories.size()==1)
-//                    {
-//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
-//                    }
-//                    if (checkedCategories.contains(countries.getText().toString()))
-//                    {
-//                        checkedCategories.remove(countries.getText().toString());
-//                    }
-//
-//
-//                }
-//
-//            }
-//        });
-//        places.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b == true)
-//                {
-//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-//                    checkedCategories.add(places.getText().toString());
-//
-//                }
-//                else
-//                {
-//                    if( checkedCategories.size()==1)
-//                    {
-//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
-//                    }
-//                    if (checkedCategories.contains(places.getText().toString()))
-//                    {
-//                        checkedCategories.remove(places.getText().toString());
-//                    }
-//
-//
-//                }
-//            }
-//        });
-//        objects.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b == true) {
-//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-//
-//                    checkedCategories.add(objects.getText().toString());
-//                }
-//                else {
-//                    if( checkedCategories.size()==1)
-//                    {
-//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
-//                    }
-//                    if (checkedCategories.contains(objects.getText().toString()))
-//                    {
-//                        checkedCategories.remove(objects.getText().toString());
-//                    }
-//
-//
-//                }
-//            }
-//        });
-//        geography.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b == true)
-//                {
-//                    checkedCategories.add(geography.getText().toString());
-//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-//                }
-//                else {
-//                    if (checkedCategories.size()==1)
-//                    {
-//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
-//                    }
-//                    if (checkedCategories.contains(geography.getText().toString()))
-//                    {
-//                        checkedCategories.remove(geography.getText().toString());
-//                    }
-//
-//
-//                }
-//            }
-//        });
-
 
         countries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -556,15 +425,17 @@ public class Game  extends AppCompatActivity {
                 }
             }
         });
-
+        // start game
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                System.out.println("Categories = "+checkedCategories.size());
-                if (checkedCategories.size()>=1)
+               // System.out.println("Categories = "+checkedCategories.size());
+                if (checkedCategories.size()>0)
                 {
+                    // change background color of start button
                     start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+                    generateRandomInfo();
                     Intent i= generateGameIntent(start.getContext(), tapActivtiy.class);
                     start.getContext().startActivity(i);
                 }
@@ -588,19 +459,16 @@ public class Game  extends AppCompatActivity {
 
     public static void prepareElements(TextView players_veiw,TextView spies_veiw,TextView time_veiw )
     {
-
+        checkedCategories.clear();
         players_veiw.setText(String.valueOf(numOfPlayers));
         spies_veiw.setText(String.valueOf(numOfSpies));
         time_veiw.setText(String.valueOf(time));
+
 
     }
 
     // --------------------------------------------------
 
-    // deal with timer events (stop , reset) in the play activity
-    public  void onPlay() {
-
-    }
 
 
 
@@ -608,99 +476,78 @@ public class Game  extends AppCompatActivity {
 
 
 
-    public static void setSpyPlayerNote(String spyPlayerNote) {
-        Game.spyPlayerNote = spyPlayerNote;
-    }
+    // setters
 
-    public static String getSpyPlayerNote() {
-        return spyPlayerNote;
-    }
-
-    public static int getNumOfPlayers() {
-        return numOfPlayers;
-    }
-
+    public static void setCheckedCategories(ArrayList<String> checkedCategories) { Game.checkedCategories = checkedCategories; }
+    public static void setNumOfLocations(int numOfLocations) {Game.numOfLocations = numOfLocations;}
+    public static void setSpyPlayerNote(String spyPlayerNote) {Game.spyPlayerNote = spyPlayerNote;}
     public static void setNumOfPlayers(int numOfPlayers) {
         Game.numOfPlayers = numOfPlayers;
     }
-
-    public static int getNumOfSpies() {
-        return numOfSpies;
-    }
-
     public static void setNumOfSpies(int numOfSpies) {
         Game.numOfSpies = numOfSpies;
     }
-
-    public static int getNumOfCategories() {
-        return numOfCategories;
-    }
-
-    public static void setNumOfCategories(int numOfCategories) {
-        Game.numOfCategories = numOfCategories;
-    }
-
-    public static String getLocalPlayerNote() {
-        return localPlayerNote;
-    }
-
-    public static void setLocalPlayerNote(String localPlayerNote) {
-        Game.localPlayerNote = localPlayerNote;
-    }
-
-    public static ArrayList<String> getCheckCategories() {
-        return checkedCategories;
-    }
-
-    public static ArrayList<String> getCategories() {
-        return categories;
-    }
-
+    public static void setNumOfCategories(int numOfCategories) {Game.numOfCategories = numOfCategories; }
+    public static void setLocalPlayerNote(String localPlayerNote) {  Game.localPlayerNote = localPlayerNote; }
     public static void setCategories(ArrayList<String> categories) {
         Game.categories = categories;
     }
-
-    public static void setCheckCategories(ArrayList<String> checkCategories) {
-        Game.checkedCategories = checkCategories;
-    }
-
-    public static String[][] getCatLocations() {
-        return catLocations;
-    }
-
-    public static void setCatLocations(String[][] catLocations) {
-        Game.catLocations = catLocations;
-    }
-
-    public static int getCategoryIndex() {
-        return categoryIndex;
-    }
-
+    public static void setCheckCategories(ArrayList<String> checkCategories) { Game.checkedCategories = checkCategories;}
+    public static void setCatLocations(String[][] catLocations) {Game.catLocations = catLocations;}
     public static void setCategoryIndex(int categoryIndex) {
         Game.categoryIndex = categoryIndex;
     }
-
-    public static int getLocationsIndex() {
-        return locationsIndex;
-    }
-
-    public static void setLocationsIndex(int locationsIndex) {
-        Game.locationsIndex = locationsIndex;
-    }
-
-    public static Player[] getPlayers() {
-        return players;
-    }
-
+    public static void setLocationsIndex(int locationsIndex) {Game.locationsIndex = locationsIndex;}
     public static void setPlayers(Player[] players) {
         Game.players = players;
     }
-
-    public static int getTime() {
-        return time;
-    }
-
     public static void setTime(int time) {
         Game.time = time;
     }
+
+
+    // getters
+
+    public static int getTime() {return time;}
+    public static Player[] getPlayers() {
+        return players;
+    }
+    public static int getLocationsIndex() {
+        return locationsIndex;
+    }
+    public static int getCategoryIndex() {
+        return categoryIndex;
+    }
+    public static String[][] getCatLocations() {
+        return catLocations;
+    }
+    public static String getLocalPlayerNote() {
+        return localPlayerNote;
+    }
+    public static int getNumOfSpies() {
+        return numOfSpies;
+    }
+    public static int getNumOfPlayers() {
+        return numOfPlayers;
+    }
+    public static String getSpyPlayerNote() {
+        return spyPlayerNote;
+    }
+    public static ArrayList<String> getCheckedCategories() { return checkedCategories;}
+    public static ArrayList<String> getCheckCategories() {
+        return checkedCategories;
+    }
+    public static ArrayList<String> getCategories() {
+        return categories;
+    }
+    public static int getNumOfCategories() {
+        return numOfCategories;
+    }
+    public static int getNumOfLocations() {return numOfLocations;}
+
+
+
+
+
+
 }

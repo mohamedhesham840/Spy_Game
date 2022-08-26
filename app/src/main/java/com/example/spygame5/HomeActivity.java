@@ -75,45 +75,61 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
-    static TextView players_txt;
-    static TextView spies;
-    static TextView Time;
-    static Button plus_player;
-    static Button mines_player;
-    static Button plus_spy;
-    static Button mines_spy;
-    static Button plus_time;
-    static Button mines_time;
-    static CheckBox countries;
-    static CheckBox places;
-    static CheckBox objects;
-    static CheckBox geography;
-    static Button start;
+    // declaration 
+    // buttons
+    private  Button playersPlus_btn ;
+    private  Button playersMinus_btn;
+    private  Button spiesPlus_btn   ;
+    private  Button spiesMinus_btn  ;
+    private  Button timerPlus_btn   ;
+    private  Button timerMinus_btn  ;
+    private  Button startGame_btn   ;
+
+    // textView
+    private TextView numOfPlayers_tv;
+    private TextView numOfSpies_tv ;
+    private TextView timer_tv      ;
+
+    // checkbox
+    private CheckBox checkBox1 ;
+    private CheckBox checkBox2 ;
+    private CheckBox checkBox3 ;
+    private CheckBox checkBox4 ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        players_txt=findViewById(R.id.numOfPlayers_id);
-        spies=findViewById(R.id.numOfSpies_id);
-        Time=findViewById(R.id.timer_id);
-        plus_player=findViewById(R.id.playersPlus_id);
-        mines_player=findViewById(R.id.playersMinus_id);
-        plus_spy=findViewById(R.id.spiesPlus_id);
-        mines_spy=findViewById(R.id.spiesMinus_id);
-        plus_time=findViewById(R.id.timerPlus_id);
-        mines_time=findViewById(R.id.timerMinus_id);
-        countries=findViewById(R.id.checkBox1_id);
-        places=findViewById(R.id.checkBox2_id);
-        objects=findViewById(R.id.checkBox3_id);
-        geography=findViewById(R.id.checkBox4_id);
-        start=findViewById(R.id.start_btn_id);
+        // inflate
+        // button
+        playersPlus_btn     =  findViewById(R.id.playersPlus_id);
+        playersMinus_btn    = findViewById(R.id.playersMinus_id);
+        spiesPlus_btn       = findViewById(R.id.spiesPlus_id);
+        spiesMinus_btn      = findViewById(R.id.spiesMinus_id);
+        timerPlus_btn       = findViewById(R.id.timerPlus_id);
+        timerMinus_btn      = findViewById(R.id.timerMinus_id);
+        startGame_btn       = findViewById(R.id.start_btn_id);
+
+        // textView
+        numOfPlayers_tv = findViewById(R.id.numOfPlayers_id);
+        numOfSpies_tv   = findViewById(R.id.numOfSpies_id);
+        timer_tv        = findViewById(R.id.timer_id);
+
+        // checkBox
+        checkBox1 = findViewById(R.id.checkBox1_id);
+        checkBox2 = findViewById(R.id.checkBox2_id);
+        checkBox3 = findViewById(R.id.checkBox3_id);
+        checkBox4 = findViewById(R.id.checkBox4_id);
 
 
-
-        Game.homeEvents(players_txt,spies,Time,plus_player,mines_player,plus_spy,mines_spy,plus_time,mines_time,countries,places,objects,geography,start);
-        Game.prepareElements(players_txt,spies,Time);
+        // get data from database and, set it into Game attributes
+        Game.getDataFromDatabase();
+        // put data on the view elements
+        Game.prepareElements(numOfPlayers_tv,numOfSpies_tv,timer_tv);
+        // handling  home activity events
+        Game.homeEvents(numOfPlayers_tv,numOfSpies_tv,timer_tv,playersPlus_btn,playersMinus_btn,spiesPlus_btn,spiesMinus_btn,timerPlus_btn,timerMinus_btn,checkBox1,checkBox2,checkBox3,checkBox4,startGame_btn);
 
     }
 

@@ -11,11 +11,11 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    // declarations
-    ImageView info_imv;
-    ImageView log_imv;
-    TextView  rules_tv;
-    boolean   visible = false; // for appear/disappear rules text view
+    //declarations
+    private ImageView info_imv;
+    private  ImageView log_imv;
+    private TextView  rules_tv;
+    private boolean   visible = false; // for appear/disappear rules text view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();   // make the app full screen
 
         // inflate
-        log_imv  = findViewById(R.id.log_id);
-        info_imv = findViewById(R.id.info_id);
-        rules_tv = findViewById(R.id.rules_id);
+        info_imv= findViewById(R.id.info_id);
+        log_imv = findViewById(R.id.log_id);
+        rules_tv= findViewById(R.id.rules_id) ;
+
 
         // events
+        // navigate to home activity
         log_imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // display on/off the game rule
         info_imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
