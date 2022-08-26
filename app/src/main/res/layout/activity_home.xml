@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/timerMinus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="44dp"
@@ -57,7 +57,7 @@
             app:srcCompat="@drawable/logo_1" />
 
         <Button
-            android:id="@+id/button22"
+            android:id="@+id/spiesMinus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="44dp"
@@ -69,22 +69,21 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <Button
-            android:id="@+id/button21"
+            android:id="@+id/spiesPlus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="56dp"
             android:background="#238D9BA3"
             android:text="+"
             android:textColor="#7194A3"
             android:textSize="30dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView7"
-            app:layout_constraintHorizontal_bias="0.051"
-            app:layout_constraintStart_toEndOf="@+id/button22"
+            app:layout_constraintEnd_toStartOf="@+id/numOfSpies_id"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toEndOf="@+id/spiesMinus_id"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/timerPlus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
@@ -93,13 +92,13 @@
             android:text="+"
             android:textColor="#7194A3"
             android:textSize="30dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/timer_id"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/timerMinus_id"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
-            android:id="@+id/button20"
+            android:id="@+id/playersMinus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="44dp"
@@ -111,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/numOfPlayers_id"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -140,7 +139,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/playersPlus_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
@@ -149,7 +148,9 @@
             android:text="+"
             android:textColor="#7893A1"
             android:textSize="30dp"
-            app:layout_constraintStart_toEndOf="@+id/button20"
+            app:layout_constraintEnd_toStartOf="@+id/numOfPlayers_id"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/playersMinus_id"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
@@ -182,18 +183,18 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/numOfSpies_id"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:background="@color/none"
-            android:text="3"
+            android:text="1"
             android:textAlignment="center"
             android:textColor="@color/color2"
             android:textSize="38dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/numOfPlayers_id"
             app:layout_constraintVertical_bias="0.173" />
 
         <TextView
@@ -211,30 +212,30 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/timer_id"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="132dp"
             android:layout_marginEnd="12dp"
             android:background="@color/none"
-            android:text="3"
+            android:text="1"
             android:textAlignment="center"
             android:textColor="@color/color2"
             android:textSize="38dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/numOfSpies_id"
             app:layout_constraintVertical_bias="0.008" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBox1_id"
             android:layout_width="110dp"
             android:layout_height="27dp"
             android:buttonTint="@color/colorInHome"
             android:checked="false"
             android:text="Countries"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox2_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
             app:layout_constraintStart_toStartOf="parent"
@@ -242,20 +243,20 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBox2_id"
             android:layout_width="110dp"
             android:layout_height="27dp"
             android:buttonTint="@color/colorInHome"
             android:checked="false"
             android:text="Places"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox3"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox3_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/checkBox4_id"
             android:layout_width="110dp"
             android:layout_height="27dp"
             android:layout_marginBottom="20dp"
@@ -269,14 +270,14 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkBox3_id"
             android:layout_width="110dp"
             android:layout_height="27dp"
             android:buttonTint="@color/colorInHome"
             android:checked="false"
             android:text="Objects"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+            app:layout_constraintBottom_toTopOf="@+id/checkBox4_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
             app:layout_constraintStart_toStartOf="parent" />

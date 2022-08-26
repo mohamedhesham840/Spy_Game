@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/onStop_id"
         android:layout_width="64dp"
         android:layout_height="56dp"
         android:layout_marginStart="100dp"
@@ -81,7 +81,7 @@
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/onPlay_id"
         android:layout_width="64dp"
         android:layout_height="56dp"
         android:layout_marginStart="128dp"
@@ -90,7 +90,7 @@
         android:tint="@color/colorInHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0"

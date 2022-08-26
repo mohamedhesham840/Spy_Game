@@ -8,8 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -30,7 +38,7 @@ import java.util.Random;
  * @author mohamed
  *
  */
-public class Game  {
+public class Game  extends AppCompatActivity {
     // 1
     // finals
     // these attributes for array declaration
@@ -44,8 +52,8 @@ public class Game  {
     private static int time;
 
     private static Player players[]= new Player[maxNumOfPlayers];
-    private static ArrayList<String>checkedCategories;
-    private static ArrayList<String>categories;
+    private static ArrayList<String>checkedCategories = new ArrayList<String>();
+    private static ArrayList<String>categories        = new ArrayList<String>();
     private static int numOfCategories;// store actual size of categories
     private static int numOfLocations;// store actual size of all categories
     private static String catLocations [][] = new String[maxNumOfCategories][maxNumOfLocations];
@@ -85,8 +93,8 @@ public class Game  {
 
 
         // testing
-        numOfPlayers = 7;
-        numOfSpies = 3;
+        numOfPlayers = 5;
+        numOfSpies = 2;
         numOfCategories = 4;
         numOfLocations = 3;
         spyPlayerNote = "Try to Understand what location the locals are talking about";
@@ -169,7 +177,21 @@ public class Game  {
             }
 
         }
-        categoryIndex  = rand.nextInt(numOfCategories);
+        int temp   = rand.nextInt(checkedCategories.size());
+        switch(checkedCategories.get(temp)){
+            case "Countries":
+                categoryIndex= 0;
+                break;
+            case "Places":
+                categoryIndex = 1;
+                break;
+            case "Objects":
+                categoryIndex = 2;
+                break;
+            case "Geography":
+                categoryIndex = 3;
+
+        }
         locationsIndex = rand.nextInt(numOfLocations);
 
 
@@ -204,6 +226,7 @@ public class Game  {
     // catLocations, numOfPlayers, numOfSpies,... , etc
     public static void getDataFromDatabase() {
 
+
     }
 
     // --------------------------------------------------
@@ -220,15 +243,355 @@ public class Game  {
      *
      *
      */
-    public  void homeEvents() {
+    public static  void homeEvents(TextView players_txt, TextView spies , TextView Time, Button plus_player, Button mines_player, Button plus_spy, Button mines_spy, Button plus_time, Button mines_time, CheckBox countries, CheckBox places, CheckBox objects, CheckBox geography, Button start)
+    {
+
+
+
+        plus_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numOfPlayers= Integer.parseInt(players_txt.getText().toString());
+                if(numOfPlayers<maxNumOfPlayers) {
+                    numOfPlayers++;
+                    players_txt.setText(String.valueOf(numOfPlayers));
+                }
+
+                else {
+
+                    Toast.makeText(players_txt.getContext(), "You Over Maximum Number Of Player", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+        });
+        mines_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numOfPlayers= Integer.parseInt(players_txt.getText().toString());
+                if ((numOfPlayers-1)%2 == 0)
+                {
+                    if (numOfSpies<(numOfPlayers-1)/2)
+                    {
+                        numOfPlayers--;
+                        players_txt.setText(String.valueOf(numOfPlayers));
+                    }
+                }
+                /*
+                 * 8 8-1= 7
+                 *
+                 *
+                 *
+                 * */
+                else {
+                    if (numOfSpies<=(numOfPlayers-1)/2)
+                    {
+                        numOfPlayers--;
+                        players_txt.setText(String.valueOf(numOfPlayers));
+                    }
+
+                }
+                /*if (numOfPlayers>3&&(numOfPlayers-1)>2*numOfSpies) {
+                    numOfPlayers--;
+                    players_txt.setText(String.valueOf(numOfPlayers));
+                }*/
+
+
+            }
+        });
+        plus_spy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numOfSpies= Integer.parseInt(spies.getText().toString());
+                if (numOfPlayers%2==0)
+                {
+                    if ((numOfSpies+1)<numOfPlayers/2)
+                    {
+                        numOfSpies++;
+                        spies.setText(String.valueOf(numOfSpies));
+                    }
+                    else
+                    {
+                        Toast.makeText(plus_spy.getContext(), "You Over Number Of spies According To Number Of Players ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    if ((numOfSpies+1)<=numOfPlayers/2)
+                    {
+                        numOfSpies++;
+                        spies.setText(String.valueOf(numOfSpies));
+                    }
+                    else
+                    {
+                        Toast.makeText(plus_spy.getContext(), "You Over Number Of spies According To Number Of Players ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+
+
+
+            }
+        });
+        mines_spy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                numOfSpies= Integer.parseInt(spies.getText().toString());
+                if(numOfSpies>1) {
+                    numOfSpies--;
+                    spies.setText(String.valueOf(numOfSpies));
+                }
+            }
+        });
+        plus_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                time= Integer.parseInt(Time.getText().toString());
+                if(time<15) {
+                    time++;
+                    Time.setText(String.valueOf(time));
+                }
+                else
+                {
+                    Toast.makeText(Time.getContext(), "Time Shouldnot Over 15 Minutes", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        mines_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                time= Integer.parseInt(Time.getText().toString());
+                if (time>3) {
+                    time--;
+                    Time.setText(String.valueOf(time));
+                }
+            }
+        });
+//        countries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b == true) {
+//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+//                    checkedCategories.add(countries.getText().toString());
+//
+//                }
+//                else if (b==false) {
+//                    if (checkedCategories.size()==1)
+//                    {
+//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+//                    }
+//                    if (checkedCategories.contains(countries.getText().toString()))
+//                    {
+//                        checkedCategories.remove(countries.getText().toString());
+//                    }
+//
+//
+//                }
+//
+//            }
+//        });
+//        places.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b == true)
+//                {
+//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+//                    checkedCategories.add(places.getText().toString());
+//
+//                }
+//                else
+//                {
+//                    if( checkedCategories.size()==1)
+//                    {
+//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+//                    }
+//                    if (checkedCategories.contains(places.getText().toString()))
+//                    {
+//                        checkedCategories.remove(places.getText().toString());
+//                    }
+//
+//
+//                }
+//            }
+//        });
+//        objects.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b == true) {
+//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+//
+//                    checkedCategories.add(objects.getText().toString());
+//                }
+//                else {
+//                    if( checkedCategories.size()==1)
+//                    {
+//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+//                    }
+//                    if (checkedCategories.contains(objects.getText().toString()))
+//                    {
+//                        checkedCategories.remove(objects.getText().toString());
+//                    }
+//
+//
+//                }
+//            }
+//        });
+//        geography.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b == true)
+//                {
+//                    checkedCategories.add(geography.getText().toString());
+//                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+//                }
+//                else {
+//                    if (checkedCategories.size()==1)
+//                    {
+//                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+//                    }
+//                    if (checkedCategories.contains(geography.getText().toString()))
+//                    {
+//                        checkedCategories.remove(geography.getText().toString());
+//                    }
+//
+//
+//                }
+//            }
+//        });
+
+
+        countries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+                    checkedCategories.add(countries.getText().toString());
+
+                }
+                if (b==false) {
+                    if (checkedCategories.size()==1)
+                    {
+                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+                    }
+                    if (checkedCategories.contains(countries.getText().toString()))
+                    {
+                        checkedCategories.remove(countries.getText().toString());
+                    }
+
+
+                }
+                Toast.makeText(countries.getContext(), "test", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        places.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true)
+                {
+                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+                    checkedCategories.add(places.getText().toString());
+
+                }
+                else
+                {
+                    if( checkedCategories.size()==1)
+                    {
+                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+                    }
+                    if (checkedCategories.contains(places.getText().toString()))
+                    {
+                        checkedCategories.remove(places.getText().toString());
+                    }
+
+
+                }
+            }
+        });
+        objects.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+
+                    checkedCategories.add(objects.getText().toString());
+                }
+                else {
+                    if( checkedCategories.size()==1)
+                    {
+                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+                    }
+                    if (checkedCategories.contains(objects.getText().toString()))
+                    {
+                        checkedCategories.remove(objects.getText().toString());
+                    }
+
+
+                }
+            }
+        });
+        geography.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true)
+                {
+                    checkedCategories.add(geography.getText().toString());
+                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+                }
+                else {
+                    if (checkedCategories.size()==1)
+                    {
+                        start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
+                    }
+                    if (checkedCategories.contains(geography.getText().toString()))
+                    {
+                        checkedCategories.remove(geography.getText().toString());
+                    }
+
+
+                }
+            }
+        });
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("Categories = "+checkedCategories.size());
+                if (checkedCategories.size()>=1)
+                {
+                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
+                    Intent i= generateGameIntent(start.getContext(), tapActivtiy.class);
+                    start.getContext().startActivity(i);
+                }
+                else {
+                    Toast.makeText(start.getContext(), "Choose At least One Category ", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+        });
 
     }
+
+
     // --------------------------------------------------
 
     // default data ( called after getDefaultDatabase )
     // push the data into home elements- note : this could be bart of activity code
-    public  void prepareElements() {
 
+
+    public static void prepareElements(TextView players_veiw,TextView spies_veiw,TextView time_veiw )
+    {
+
+        players_veiw.setText(String.valueOf(numOfPlayers));
+        spies_veiw.setText(String.valueOf(numOfSpies));
+        time_veiw.setText(String.valueOf(time));
 
     }
 
