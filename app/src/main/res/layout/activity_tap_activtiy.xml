@@ -4,6 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/CardsBackground"
     tools:context=".tapActivtiy">
 
+    <View
+        android:id="@+id/view16"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="82dp"
+        android:background="@color/color2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view15"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="82dp"
+        android:background="@color/color2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="216dp"
+        android:layout_height="90dp"
+
+        android:text="Player 1"
+        android:textAlignment="center"
+        android:textColor="@color/color2"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="226dp"
+        android:layout_height="115dp"
+
+        android:text="Tap on the screen "
+        android:textAlignment="center"
+        android:textColor="@color/color2"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/none"
+        android:text=""
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="45dp" />
 </android.support.constraint.ConstraintLayout>

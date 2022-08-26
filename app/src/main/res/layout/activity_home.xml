@@ -24,7 +24,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="44dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="1dp"
             android:background="@color/color2"
             android:text="-"
             android:textSize="30dp"
@@ -50,7 +50,7 @@
             android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.37"
+            app:layout_constraintHorizontal_bias="0.358"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.024"
@@ -88,7 +88,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="1dp"
             android:background="#238D9BA3"
             android:text="+"
             android:textColor="#7194A3"
@@ -234,12 +234,12 @@
             android:checked="false"
             android:text="Countries"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.792" />
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -249,24 +249,27 @@
             android:checked="false"
             android:text="Places"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox3"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.83" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="110dp"
             android:layout_height="27dp"
-            android:layout_marginBottom="20dp"
             android:buttonTint="@color/colorInHome"
             android:checked="false"
-            android:text="Geography"
+            android:text="Animals"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/button17"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -276,10 +279,12 @@
             android:checked="false"
             android:text="Objects"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.869" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <rotate android:fromDegrees="120" android:pivotX="70%" android:toDegrees="120">
+            <shape android:shape="line" android:top="1dip">
+                <stroke android:width="5dip" android:color="@color/colorInHome" />
+            </shape>
+        </rotate>
+    </item>
+</selector>

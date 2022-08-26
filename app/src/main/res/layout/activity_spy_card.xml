@@ -4,6 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/CardsBackground"
     tools:context=".spyCardActivity">
+
+    <View
+        android:id="@+id/view14"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="82dp"
+        android:background="@color/colorInHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginBottom="82dp"
+        android:background="@color/colorInHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view12"
+        android:layout_width="2dp"
+        android:layout_height="565dp"
+        android:layout_marginStart="24dp"
+        android:background="@color/colorInHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="2dp"
+        android:layout_height="565dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorInHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="287dp"
+        android:layout_height="99dp"
+        android:text="You are a Spy"
+        android:textAlignment="center"
+        android:textColor="@color/colorInHome"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="263dp"
+        android:layout_height="56dp"
+        android:background="#16000000"
+        android:text="Try to know what location locals are talking aobut"
+        android:textAlignment="center"
+        android:textColor="@color/colorInHome"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/none"
+        android:text=""
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="45dp" />
 
 </android.support.constraint.ConstraintLayout>
