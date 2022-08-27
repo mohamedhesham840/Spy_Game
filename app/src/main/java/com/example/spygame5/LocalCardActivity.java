@@ -50,7 +50,7 @@ public class LocalCardActivity extends AppCompatActivity {
         if(index != -1) {
 
             //display messages for the player
-//            playerRule_tv.setText(Game.getCatLocations()[Game.getCategoryIndex()][Game.getLocationsIndex()]);
+            playerRule_tv.setText(Game.getRandomLocation());
 //            playerNote_tv.setText(Game.getLocalPlayerNote());
 
 

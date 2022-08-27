@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,9 +16,12 @@ import android.widget.Toast;
 
 import android.widget.Toast;
 
+import com.example.spygame5.database.DataBaseHelper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import org.w3c.dom.Text;
 
@@ -43,25 +47,20 @@ public class Game  extends AppCompatActivity {
     // 1
     // finals
     // these attributes for array declaration
-    private static final int maxNumOfPlayers = 15;
-    private static final int maxNumOfCategories = 10; // depend on num of categories appear on the screen
-    private static final int maxNumOfLocations  = 20;
+    private static final int maxNumOfPlayers = 20;
+
 
     // game attributes
+
     private static int numOfPlayers;
     private static int numOfSpies;
     private static int time;
 
     private static Player players[]= new Player[maxNumOfPlayers];
-    private static ArrayList<String>checkedCategories = new ArrayList<String>();
     private static ArrayList<String>categories        = new ArrayList<String>();
-    private static HashMap<String, ArrayList<String>> catLocations1 = new HashMap<>();
-    private static int numOfCategories;// store actual size of categories
-    private static int numOfLocations;// store actual size of all categories
-    private static String catLocations [][] = new String[maxNumOfCategories][maxNumOfLocations];
-    private static int categoryIndex; // random from categories   list
-    private static int locationsIndex;// random from catLocations list
-
+    private static ArrayList<String>checkedCategories = new ArrayList<String>();
+    private static HashMap<String, ArrayList<String>> catLocations = new HashMap<>();
+    private static String randomLocation;
 
 
 
@@ -73,7 +72,7 @@ public class Game  extends AppCompatActivity {
 
     // display on card
     private static String localPlayerNote; // message for the local player
-    private static String spyPlayerNote; // message for the spy player
+    private static String spyPlayerNote;   // message for the spy player
 /*
 
         BackEnd Algorithm:
@@ -119,22 +118,9 @@ public class Game  extends AppCompatActivity {
             }
 
         }
-        int temp   = rand.nextInt(checkedCategories.size());
-        switch(checkedCategories.get(temp)){
-            case "Countries":
-                categoryIndex= 0;
-                break;
-            case "Places":
-                categoryIndex = 1;
-                break;
-            case "Objects":
-                categoryIndex = 2;
-                break;
-            case "Geography":
-                categoryIndex = 3;
 
-        }
-        locationsIndex = rand.nextInt(numOfLocations);
+        String  randomCategory   = checkedCategories.get(rand.nextInt(checkedCategories.size()));// ex: countries
+        randomLocation =  catLocations.get(randomCategory).get( rand.nextInt(catLocations.get(randomCategory).size()));;
 
 
     }
@@ -142,35 +128,100 @@ public class Game  extends AppCompatActivity {
 
     // --------------------------------------------------
 
-    // get default data from database into the attributes : categories,
-    // catLocations, numOfPlayers, numOfSpies,... , etc
-    public static void getDataFromDatabase() {
 
-        // testing
-        // default
-        numOfPlayers    = 3;
-        numOfSpies      = 1;
-        time = 1;
+        // get default data from database into the attributes : categories,
+        // catLocations, numOfPlayers, numOfSpies,... , etc
+        public static void getDataFromDatabase(DataBaseHelper db) {
+            numOfPlayers    = 3;
+            numOfSpies      = 1;
+            time = 1;
+//            List<Pair<String, String>> all = db.getAllCategories();
+//            HashMap<String, List<String>> data = new HashMap<>();
+//
+//
+//            for (String key : data.keySet()) {
+//
+//             categories.add(key);
+//                ArrayList<String>locations = new ArrayList<>();
+//                for (String element : data.get(key)) {
+//
+//                    locations.add(element);
+//
+//                }
+//                catLocations.put(key, locations);
+//            }
 
-        spyPlayerNote   = "Try to know what location locals are talking about";
-        localPlayerNote = "You are local ask questions to know the spy";
+
+            // testing 2
+            String category1 = "Countries";
+            String category2 = "Places";
+            String category3 = "Objects";
+            String category4 = "Geography";
+            ArrayList <String>list1 = new ArrayList<>();
+            ArrayList <String>list2 = new ArrayList<>();
+            ArrayList <String>list3 = new ArrayList<>();
+            ArrayList <String>list4 = new ArrayList<>();
+
+            list1.add("Country 1");
+            list1.add("Country 2");
+            list1.add("Country 3");
+            list1.add("Country 4");
+            list1.add("Country 5");
+
+            list2.add("Place 1");
+            list2.add("Place 2");
+            list2.add("Place 3");
+            list2.add("Place 4");
+            list2.add("Place 5");
 
 
-        // depend on database
-        numOfCategories = 4;
-        numOfLocations  = 3;
-        catLocations[0][0]=  "Country 1";
-        catLocations[0][1]=  "Country 2" ;
-        catLocations[0][2]=  "Country 3";
-        catLocations[1][0]= "Places 1" ;
-        catLocations[1][1]= "Places 2";
-        catLocations[1][2]= "Places 3" ;
-        catLocations[2][0]= "Objects 1" ;
-        catLocations[2][1]= "Objects 2";
-        catLocations[2][2]= "Objects 3" ;
-        catLocations[3][0]= "Geography 1" ;
-        catLocations[3][1]= "Geography 2";
-        catLocations[3][2]= "Geography 3";
+            list3.add("Object 1");
+            list3.add("Object 2");
+            list3.add("Object 3");
+            list3.add("Object 4");
+            list3.add("Object 5");
+
+            list4.add("Geography 1");
+            list4.add("Geography 2");
+            list4.add("Geography 3");
+            list4.add("Geography 4");
+            list4.add("Geography 5");
+
+
+            categories.add(category1);
+            categories.add(category2);
+            categories.add(category3);
+            categories.add(category4);
+
+            catLocations.put(category1,list1 );
+            catLocations.put(category2,list2 );
+            catLocations.put(category3,list3 );
+            catLocations.put(category4,list4 );
+
+
+//        // testing 1
+//        // default
+//
+//
+//        spyPlayerNote   = "Try to know what location locals are talking about";
+//        localPlayerNote = "You are local ask questions to know the spy";
+//
+//
+//        // depend on database
+//        numOfCategories = 4;
+//        numOfLocations  = 3;
+//        catLocations[0][0]=  "Country 1";
+//        catLocations[0][1]=  "Country 2" ;
+//        catLocations[0][2]=  "Country 3";
+//        catLocations[1][0]= "Places 1" ;
+//        catLocations[1][1]= "Places 2";
+//        catLocations[1][2]= "Places 3" ;
+//        catLocations[2][0]= "Objects 1" ;
+//        catLocations[2][1]= "Objects 2";
+//        catLocations[2][2]= "Objects 3" ;
+//        catLocations[3][0]= "Geography 1" ;
+//        catLocations[3][1]= "Geography 2";
+//        catLocations[3][2]= "Geography 3";
 
 
     }
@@ -448,8 +499,10 @@ public class Game  extends AppCompatActivity {
 
     // setters
 
+    public static void setRandomLocation(String randomLocation) {
+        Game.randomLocation = randomLocation;
+    }
     public static void setCheckedCategories(ArrayList<String> checkedCategories) { Game.checkedCategories = checkedCategories; }
-    public static void setNumOfLocations(int numOfLocations) {Game.numOfLocations = numOfLocations;}
     public static void setSpyPlayerNote(String spyPlayerNote) {Game.spyPlayerNote = spyPlayerNote;}
     public static void setNumOfPlayers(int numOfPlayers) {
         Game.numOfPlayers = numOfPlayers;
@@ -457,40 +510,34 @@ public class Game  extends AppCompatActivity {
     public static void setNumOfSpies(int numOfSpies) {
         Game.numOfSpies = numOfSpies;
     }
-    public static void setNumOfCategories(int numOfCategories) {Game.numOfCategories = numOfCategories; }
     public static void setLocalPlayerNote(String localPlayerNote) {  Game.localPlayerNote = localPlayerNote; }
     public static void setCategories(ArrayList<String> categories) {
         Game.categories = categories;
     }
     public static void setCheckCategories(ArrayList<String> checkCategories) { Game.checkedCategories = checkCategories;}
-    public static void setCatLocations(String[][] catLocations) {Game.catLocations = catLocations;}
-    public static void setCategoryIndex(int categoryIndex) {
-        Game.categoryIndex = categoryIndex;
-    }
-    public static void setLocationsIndex(int locationsIndex) {Game.locationsIndex = locationsIndex;}
     public static void setPlayers(Player[] players) {
         Game.players = players;
     }
     public static void setTime(int time) {
         Game.time = time;
     }
+    public static void setCatLocations(HashMap<String, ArrayList<String>> catLocations) {Game.catLocations = catLocations;}
 
 
-    // getters
 
+
+
+// getters
+
+
+
+    public static String getRandomLocation() { return randomLocation;}
     public static int getTime() {return time;}
     public static Player[] getPlayers() {
         return players;
     }
-    public static int getLocationsIndex() {
-        return locationsIndex;
-    }
-    public static int getCategoryIndex() {
-        return categoryIndex;
-    }
-    public static String[][] getCatLocations() {
-        return catLocations;
-    }
+
+    public static HashMap<String, ArrayList<String>> getCatLocations() {return catLocations; }
     public static String getLocalPlayerNote() {
         return localPlayerNote;
     }
@@ -510,14 +557,6 @@ public class Game  extends AppCompatActivity {
     public static ArrayList<String> getCategories() {
         return categories;
     }
-    public static int getNumOfCategories() {
-        return numOfCategories;
-    }
-    public static int getNumOfLocations() {return numOfLocations;}
-
-
-
-
 
 
 }
