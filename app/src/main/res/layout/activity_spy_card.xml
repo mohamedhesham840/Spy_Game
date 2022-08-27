@@ -14,7 +14,7 @@
         android:tint="@color/CardsBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view11"
-        app:layout_constraintStart_toEndOf="@+id/view12"
+        app:layout_constraintStart_toEndOf="@+id/view21"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.419"
         app:srcCompat="@drawable/logo10" />
@@ -41,28 +41,28 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/view12"
-        android:layout_width="2dp"
-        android:layout_height="565dp"
-        android:layout_marginStart="24dp"
-        android:background="@color/colorInHome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488" />
 
     <View
         android:id="@+id/view11"
         android:layout_width="2dp"
-        android:layout_height="565dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
         android:background="@color/colorInHome"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintTop_toBottomOf="@+id/view14"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <View
+        android:id="@+id/view21"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:background="@color/colorInHome"
+        app:layout_constraintBottom_toTopOf="@+id/view13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view14"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/spyNote_textView_id"
@@ -95,11 +95,14 @@
 
     <Button
         android:id="@+id/spyNext_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/none"
         android:text=""
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="45dp" />
+
+        app:layout_constraintBottom_toTopOf="@+id/view13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view14" />
 
 </android.support.constraint.ConstraintLayout>

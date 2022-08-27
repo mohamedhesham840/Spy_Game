@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:textSize="20sp"
     android:gravity="center"
-    android:textColor="@color/color2"
+    android:textStyle="bold"
+    android:textColor="@color/colorInHome"
     />
 

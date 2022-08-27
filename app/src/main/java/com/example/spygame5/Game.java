@@ -81,8 +81,8 @@ public class Game  extends AppCompatActivity {
         3- prepareElements();
         4- homeEvents();
         5- generateRandomInfo();
-        5- to unknown card activity
-        6- handle there events and show player cards -> done
+        5- tap card activity
+        6- navigate between spy, local, and tap activities
         7- timer activity
         8- result activity
 
@@ -104,11 +104,12 @@ public class Game  extends AppCompatActivity {
     public static void generateRandomInfo() {
 
         Random rand = new Random();
+
         for (int i = 0; i < numOfPlayers; i++) {
 
             players[i] = new Player("Player " + (i + 1), Player.PLAYER_ROLE_LOCAL);
         }
-
+        // random rule for each player
         int x = 0;
         while (x < numOfSpies) {
             int i = rand.nextInt(numOfPlayers);
@@ -118,6 +119,7 @@ public class Game  extends AppCompatActivity {
             }
 
         }
+        // random location
 
         String  randomCategory   = checkedCategories.get(rand.nextInt(checkedCategories.size()));// ex: countries
         randomLocation =  catLocations.get(randomCategory).get( rand.nextInt(catLocations.get(randomCategory).size()));;
