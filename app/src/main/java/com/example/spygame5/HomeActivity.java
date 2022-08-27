@@ -132,7 +132,7 @@ public class HomeActivity extends AppCompatActivity {
         DataBaseHelper db = new DataBaseHelper(HomeActivity.this);
         Game.getDataFromDatabase(db);
         // put data on the view elements
-        Game.prepareElements(numOfPlayers_tv, numOfSpies_tv, timer_tv);
+        Game.prepareElements(numOfPlayers_tv, numOfSpies_tv, timer_tv, checkBox1, checkBox2, checkBox3, checkBox4);
         // handling  home activity events
         Game.homeEvents(numOfPlayers_tv, numOfSpies_tv, timer_tv, playersPlus_btn, playersMinus_btn, spiesPlus_btn, spiesMinus_btn, timerPlus_btn, timerMinus_btn, checkBox1, checkBox2, checkBox3, checkBox4, startGame_btn);
         // start game

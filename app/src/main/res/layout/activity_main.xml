@@ -4,67 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_png"
+    android:background="@drawable/_9179879"
+
     android:scaleType="fitStart"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/info_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:tint="@color/color2"
-        android:clickable="true"
-
-        android:layout_marginEnd="16dp"
-        android:background="@color/none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_help" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:tint="@color/color2"
-        android:background="@color/color1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
-
-    <ImageView
-        android:id="@+id/log_id"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="296dp"
-
-        android:clickable="true"
-        android:outlineAmbientShadowColor="#BBB"
-        android:tint="@color/color2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_lock_power_off" />
-
-    <TextView
-        android:id="@+id/rules_id"
-        android:layout_width="293dp"
-        android:layout_height="601dp"
-        android:background="#DA000000"
-        android:clickable="true"
-        android:text="\n\n\n\n\nEach player except one gets a card with a location and does not know who the spy is. One of the players gets a spy card and does not know the location. Until the time expires, players take turns asking each other questions, trying to find the spy. The spy tries to stay undetected or guess the location."
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:visibility="invisible"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#34000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <ImageView
+            android:id="@+id/log_id"
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+
+            android:clickable="true"
+            android:outlineAmbientShadowColor="#BBB"
+            android:tint="@color/color4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.415"
+            app:srcCompat="@android:drawable/ic_lock_power_off" />
+
+        <ImageButton
+            android:id="@+id/info_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+
+            android:background="@color/none"
+            android:clickable="true"
+            android:tint="@color/color4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_help" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/color1"
+            android:clickable="true"
+            android:tint="@color/color4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+
+        <TextView
+            android:id="@+id/rules_id"
+            android:layout_width="293dp"
+            android:layout_height="601dp"
+            android:background="#EB0C0C0C"
+            android:clickable="true"
+            android:text="\n\n\n\n\nEach player except one gets a card with a location and does not know who the spy is. One of the players gets a spy card and does not know the location. Until the time expires, players take turns asking each other questions, trying to find the spy. The spy tries to stay undetected or guess the location."
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </android.support.constraint.ConstraintLayout>

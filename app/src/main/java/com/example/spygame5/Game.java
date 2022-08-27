@@ -137,93 +137,20 @@ public class Game  extends AppCompatActivity {
             numOfPlayers    = 3;
             numOfSpies      = 1;
             time = 1;
-//            List<Pair<String, String>> all = db.getAllCategories();
-//            HashMap<String, List<String>> data = new HashMap<>();
-//
-//
-//            for (String key : data.keySet()) {
-//
-//             categories.add(key);
-//                ArrayList<String>locations = new ArrayList<>();
-//                for (String element : data.get(key)) {
-//
-//                    locations.add(element);
-//
-//                }
-//                catLocations.put(key, locations);
-//            }
 
 
-            // testing 2
-            String category1 = "Countries";
-            String category2 = "Places";
-            String category3 = "Objects";
-            String category4 = "Geography";
-            ArrayList <String>list1 = new ArrayList<>();
-            ArrayList <String>list2 = new ArrayList<>();
-            ArrayList <String>list3 = new ArrayList<>();
-            ArrayList <String>list4 = new ArrayList<>();
+            List<Pair<String, String>> allCategories = db.getAllCategories();
 
-            list1.add("Country 1");
-            list1.add("Country 2");
-            list1.add("Country 3");
-            list1.add("Country 4");
-            list1.add("Country 5");
-
-            list2.add("Place 1");
-            list2.add("Place 2");
-            list2.add("Place 3");
-            list2.add("Place 4");
-            list2.add("Place 5");
-
-
-            list3.add("Object 1");
-            list3.add("Object 2");
-            list3.add("Object 3");
-            list3.add("Object 4");
-            list3.add("Object 5");
-
-            list4.add("Geography 1");
-            list4.add("Geography 2");
-            list4.add("Geography 3");
-            list4.add("Geography 4");
-            list4.add("Geography 5");
-
-
-            categories.add(category1);
-            categories.add(category2);
-            categories.add(category3);
-            categories.add(category4);
-
-            catLocations.put(category1,list1 );
-            catLocations.put(category2,list2 );
-            catLocations.put(category3,list3 );
-            catLocations.put(category4,list4 );
-
-
-//        // testing 1
-//        // default
-//
-//
-//        spyPlayerNote   = "Try to know what location locals are talking about";
-//        localPlayerNote = "You are local ask questions to know the spy";
-//
-//
-//        // depend on database
-//        numOfCategories = 4;
-//        numOfLocations  = 3;
-//        catLocations[0][0]=  "Country 1";
-//        catLocations[0][1]=  "Country 2" ;
-//        catLocations[0][2]=  "Country 3";
-//        catLocations[1][0]= "Places 1" ;
-//        catLocations[1][1]= "Places 2";
-//        catLocations[1][2]= "Places 3" ;
-//        catLocations[2][0]= "Objects 1" ;
-//        catLocations[2][1]= "Objects 2";
-//        catLocations[2][2]= "Objects 3" ;
-//        catLocations[3][0]= "Geography 1" ;
-//        catLocations[3][1]= "Geography 2";
-//        catLocations[3][2]= "Geography 3";
+            for (Pair<String, String> x : allCategories) {
+                if (!catLocations.containsKey(x.first)) {
+                    categories.add(x.first);
+                    ArrayList<String> elements = new ArrayList<>();
+                    elements.add(x.second);
+                    catLocations.put(x.first, elements);
+                } else {
+                    catLocations.get(x.first).add(x.second);
+                }
+            }
 
 
     }
@@ -243,7 +170,7 @@ public class Game  extends AppCompatActivity {
      *
      *
      */
-    public static  void homeEvents(TextView players_txt, TextView spies , TextView Time, Button plus_player, Button mines_player, Button plus_spy, Button mines_spy, Button plus_time, Button mines_time, CheckBox countries, CheckBox places, CheckBox objects, CheckBox geography, Button start)
+    public static  void homeEvents(TextView players_txt, TextView spies , TextView Time, Button plus_player, Button mines_player, Button plus_spy, Button mines_spy, Button plus_time, Button mines_time, CheckBox checkBox1, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4, Button start)
     {
 
 
@@ -376,13 +303,13 @@ public class Game  extends AppCompatActivity {
             }
         });
 
-        countries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true) {
                     start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-                    checkedCategories.add(countries.getText().toString());
+                    checkedCategories.add(checkBox1.getText().toString());
 
                 }
                 if (b==false) {
@@ -390,9 +317,9 @@ public class Game  extends AppCompatActivity {
                     {
                         start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
                     }
-                    if (checkedCategories.contains(countries.getText().toString()))
+                    if (checkedCategories.contains(checkBox1.getText().toString()))
                     {
-                        checkedCategories.remove(countries.getText().toString());
+                        checkedCategories.remove(checkBox1.getText().toString());
                     }
 
 
@@ -401,13 +328,13 @@ public class Game  extends AppCompatActivity {
 
             }
         });
-        places.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true)
                 {
                     start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-                    checkedCategories.add(places.getText().toString());
+                    checkedCategories.add(checkBox2.getText().toString());
 
                 }
                 else
@@ -416,43 +343,43 @@ public class Game  extends AppCompatActivity {
                     {
                         start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
                     }
-                    if (checkedCategories.contains(places.getText().toString()))
+                    if (checkedCategories.contains(checkBox2.getText().toString()))
                     {
-                        checkedCategories.remove(places.getText().toString());
+                        checkedCategories.remove(checkBox2.getText().toString());
                     }
 
 
                 }
             }
         });
-        objects.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true) {
                     start.setBackgroundColor(start.getResources().getColor(R.color.valid));
 
-                    checkedCategories.add(objects.getText().toString());
+                    checkedCategories.add(checkBox3.getText().toString());
                 }
                 else {
                     if( checkedCategories.size()==1)
                     {
                         start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
                     }
-                    if (checkedCategories.contains(objects.getText().toString()))
+                    if (checkedCategories.contains(checkBox3.getText().toString()))
                     {
-                        checkedCategories.remove(objects.getText().toString());
+                        checkedCategories.remove(checkBox3.getText().toString());
                     }
 
 
                 }
             }
         });
-        geography.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true)
                 {
-                    checkedCategories.add(geography.getText().toString());
+                    checkedCategories.add(checkBox4.getText().toString());
                     start.setBackgroundColor(start.getResources().getColor(R.color.valid));
                 }
                 else {
@@ -460,9 +387,9 @@ public class Game  extends AppCompatActivity {
                     {
                         start.setBackgroundColor(start.getResources().getColor(R.color.notValid));
                     }
-                    if (checkedCategories.contains(geography.getText().toString()))
+                    if (checkedCategories.contains(checkBox4.getText().toString()))
                     {
-                        checkedCategories.remove(geography.getText().toString());
+                        checkedCategories.remove(checkBox4.getText().toString());
                     }
 
 
@@ -480,12 +407,17 @@ public class Game  extends AppCompatActivity {
     // push the data into home elements- note : this could be bart of activity code
 
 
-    public static void prepareElements(TextView players_veiw,TextView spies_veiw,TextView time_veiw )
+    public static void prepareElements(TextView players_veiw,TextView spies_veiw,TextView time_veiw, CheckBox checkBox1, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4 )
     {
         checkedCategories.clear();
         players_veiw.setText(String.valueOf(numOfPlayers));
         spies_veiw.setText(String.valueOf(numOfSpies));
         time_veiw.setText(String.valueOf(time));
+        checkBox1.setText(categories.get(0));
+        checkBox2.setText(categories.get(1));
+        checkBox3.setText(categories.get(2));
+        checkBox4.setText(categories.get(3));
+
 
 
     }
