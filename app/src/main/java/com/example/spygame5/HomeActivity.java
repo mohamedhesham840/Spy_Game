@@ -156,15 +156,15 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-////        if(resultCode == tapActivtiy.TAP_RESULT_CODE_CASE1){
-//////            Game.homeEvents(numOfPlayers_tv,numOfSpies_tv,timer_tv,playersPlus_btn,playersMinus_btn,spiesPlus_btn,spiesMinus_btn,timerPlus_btn,timerMinus_btn,checkBox1,checkBox2,checkBox3,checkBox4,startGame_btn);
-////
-////        }
-//
-//    }
-//}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == tapActivtiy.TAP_RESULT_CODE_CASE1) {
+            Game.homeEvents(numOfPlayers_tv,numOfSpies_tv,timer_tv,playersPlus_btn,playersMinus_btn,spiesPlus_btn,spiesMinus_btn,timerPlus_btn,timerMinus_btn,checkBox1,checkBox2,checkBox3,checkBox4,startGame_btn);
+
+//        }
+
+        }
+    }
 
 }

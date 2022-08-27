@@ -21,7 +21,7 @@ public class timerActivity extends AppCompatActivity {
     private ImageButton reset_timer;
     private ImageButton  stop_timer ;
     private Button  skipToResult_btn;
-    private boolean timerRunning   =false;
+    private boolean timerRunning;
 
 
     @Override
@@ -30,6 +30,7 @@ public class timerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timer);
         getSupportActionBar().hide(); // make the app full screen
 
+        timerRunning   = false;
 
         // inflate
         Time       = Game.getTime()*60*1000;
@@ -45,6 +46,7 @@ public class timerActivity extends AppCompatActivity {
         skipToResult_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ResetTimer();
                 Intent intent = new Intent(getBaseContext(), FinalCardSpyName.class);
                 startActivity(intent);
                 finish();
@@ -111,7 +113,6 @@ public class timerActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timerRunning=false;
-
                 Intent i = new Intent(getBaseContext(), FinalCardSpyName.class);
                 startActivity(i);
                 finish();

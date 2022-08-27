@@ -100,6 +100,7 @@ public class tapActivtiy extends AppCompatActivity {
         if(resultCode  == LocalCardActivity.RESULT_CODE_CASE1 || resultCode== spyCardActivity.RESULT_CODE_CASE1){
             // check if all players took cards,
             // if so should navigate to timer activity
+
             if(index < Game.getNumOfPlayers()){
                 // display the player name who should pick a card
                 playerName_tv.setText(Game.getPlayers()[index].getName());
