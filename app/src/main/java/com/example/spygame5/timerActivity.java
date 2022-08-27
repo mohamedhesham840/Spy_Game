@@ -30,6 +30,9 @@ public class timerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timer);
         getSupportActionBar().hide(); // make the app full screen
 
+        // stop and release media player
+        MainActivity.audioStop();
+
         timerRunning   = false;
 
         // inflate

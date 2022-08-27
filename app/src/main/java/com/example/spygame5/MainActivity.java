@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private  static MediaPlayer mediaPlayer;
     private static ImageView audioPlay_tv;
     private static ImageView audioPause_tv;
-
+    static boolean audioPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         rules_tv= findViewById(R.id.rules_id) ;
         audioPause_tv= findViewById(R.id.audioPause_id);
         audioPlay_tv =findViewById(R.id.audioPlay_id);
+        if(audioPlaying == true){
+            audioPause_tv.setVisibility(View.INVISIBLE);
+            audioPlay_tv.setVisibility(View.VISIBLE);
+        }
 
         // events
         // navigate to home activity
@@ -69,17 +73,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // audio
+        audioStop();
+
+
 
     }
 
     public static void audioPlay(View v){
         if(mediaPlayer == null){
-            mediaPlayer = MediaPlayer.create(v.getContext(), R.raw.audio2);
+            mediaPlayer = MediaPlayer.create(v.getContext(), R.raw.audio);
         }
         mediaPlayer.start();
-        mediaPlayer.setLooping(true);
         audioPause_tv.setVisibility(View.INVISIBLE);
         audioPlay_tv.setVisibility(View.VISIBLE);
+        audioPlaying = true;
 
 
 
@@ -90,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.pause();
         audioPause_tv.setVisibility(View.VISIBLE);
         audioPlay_tv.setVisibility(View.INVISIBLE);
+        audioPlaying = false;
+
     }
     }
     public static void audioStop(){
@@ -99,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
         audioPause_tv.setVisibility(View.VISIBLE);
         audioPlay_tv.setVisibility(View.INVISIBLE);
+        audioPlaying = false;
     }
 
 }
