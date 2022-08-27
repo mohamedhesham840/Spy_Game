@@ -16,4 +16,5 @@
     <color name="notValid">#2AB2141B</color>
     <color name="CardsBackground">#D3000000</color>
     <color name="lastCardButtonColor">#32000000</color>
+    <color name="cardBackground">#2B2B2B</color>
 </resources>

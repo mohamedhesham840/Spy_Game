@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class tapActivtiy extends AppCompatActivity {
@@ -17,9 +18,14 @@ public class tapActivtiy extends AppCompatActivity {
     private final int LOCAL_CARD_REQUEST_CODE = 1;
     private final int SPY_CARD_REQUEST_CODE   = 2;
 
+    // used if there's different cases of backing to previous activity
+    public static final int TAP_RESULT_CODE_CASE1 = 1;
+
     // view elements
     private   Button displayDetail_btn;
     private   TextView playerName_tv;
+    private ImageView tapBackHome_imgView;
+
 
     // put extra
     public static final String PLAYER_INDEX = "player index";
@@ -36,12 +42,26 @@ public class tapActivtiy extends AppCompatActivity {
         // inflate
         displayDetail_btn = findViewById(R.id.displayDetail_button_id);
         playerName_tv   = findViewById(R.id.playerName_textView_id);
+        tapBackHome_imgView = findViewById(R.id.tapBackHome_imgView_id);
+
 
         // refer to first player
         index = 0;
 
         // players take turns , so each on should see his/her name
         playerName_tv.setText(Game.getPlayers()[index].getName());
+
+
+        //----------------------------events----------------------------
+        tapBackHome_imgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // back to Home Activity
+                setResult(TAP_RESULT_CODE_CASE1);
+                // close the activity
+                finish();
+            }
+        });
 
         // navigation to spy card, or local card(depend on player rule)
         displayDetail_btn.setOnClickListener(new View.OnClickListener() {
@@ -76,18 +96,25 @@ public class tapActivtiy extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // check if all players took cards,
-        // if so should navigate to timer activity
-        if(index < Game.getNumOfPlayers()){
-            // display the player name who should pick a card
-            playerName_tv.setText(Game.getPlayers()[index].getName());
-        }
-        else{
-            Intent toTimerActivity = new Intent(getBaseContext(), timerActivity.class);
-            startActivity(toTimerActivity);
-            finish();// close the activity
 
+        if(resultCode  == LocalCardActivity.RESULT_CODE_CASE1 || resultCode== spyCardActivity.RESULT_CODE_CASE1){
+            // check if all players took cards,
+            // if so should navigate to timer activity
+            if(index < Game.getNumOfPlayers()){
+                // display the player name who should pick a card
+                playerName_tv.setText(Game.getPlayers()[index].getName());
+            }
+            else{
+                Intent toTimerActivity = new Intent(getBaseContext(), timerActivity.class);
+                startActivity(toTimerActivity);
+                finish();// close the activity
+
+            }
+        }else if(resultCode  == LocalCardActivity.RESULT_CODE_CASE2 || resultCode== spyCardActivity.RESULT_CODE_CASE2){
+            setResult(TAP_RESULT_CODE_CASE1); // back to home activity
+            finish();
         }
+
 
 
     }

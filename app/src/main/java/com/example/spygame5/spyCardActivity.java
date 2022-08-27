@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class spyCardActivity extends AppCompatActivity {
@@ -14,12 +15,18 @@ public class spyCardActivity extends AppCompatActivity {
     private Button   next_btn     ;
     private TextView playerNote_tv;
     private TextView playerRule_tv;
+    private ImageView spyBackHome_imgView;
 
     // store getIntExtra content(player index)
     private int index;
 
     // used if there's different cases of backing to previous activity
+    // case 1: next
+    // case 2: back to home
     public static final int RESULT_CODE_CASE1 = 1;
+    public static final int RESULT_CODE_CASE2 = 2;
+
+
 
     //-------------------*------------------
     @Override
@@ -30,8 +37,9 @@ public class spyCardActivity extends AppCompatActivity {
 
         // inflate
         next_btn     = findViewById(R.id.spyNext_button_id);
-        playerNote_tv= findViewById(R.id.spyNote_textView_id);
-        playerRule_tv= findViewById(R.id.spyRule_textView_id);
+//        playerNote_tv= findViewById(R.id.spyNote_textView_id);
+//        playerRule_tv= findViewById(R.id.spyRule_textView_id);
+        spyBackHome_imgView = findViewById(R.id.spyBackHome_imgView_id);
 
         // used to get data ( we need index from the previous activity)
         Intent data = getIntent();
@@ -42,8 +50,21 @@ public class spyCardActivity extends AppCompatActivity {
 
 
             //messages for the player
-            playerRule_tv.setText("u are a spy"); // temp
-            playerNote_tv.setText(Game.getSpyPlayerNote());
+//            playerRule_tv.setText("u are a spy"); // temp
+//            playerNote_tv.setText(Game.getSpyPlayerNote());
+
+
+            //----------------------------events----------------------------
+            // back to home activity
+            spyBackHome_imgView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // back to tapActivity
+                    setResult(RESULT_CODE_CASE2);
+                    // close the activity
+                    finish();
+                }
+            });
 
             //navigate to tap activity
             next_btn.setOnClickListener(new View.OnClickListener() {

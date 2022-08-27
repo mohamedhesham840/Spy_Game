@@ -196,14 +196,14 @@
 
     <ImageButton
         android:id="@+id/backHome_imgButton_id"
-        android:layout_width="337dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:background="@color/lastCardButtonColor"
         android:tint="@color/colorInHome"
 
         app:layout_constraintBottom_toTopOf="@+id/finalcard3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view7"
+        app:layout_constraintStart_toEndOf="@+id/view5"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
 </android.support.constraint.ConstraintLayout>

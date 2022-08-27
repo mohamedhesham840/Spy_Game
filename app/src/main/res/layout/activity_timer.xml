@@ -55,33 +55,15 @@
         android:id="@+id/textView3"
         android:layout_width="211dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
         android:text="10:00"
         android:textAlignment="center"
         android:textColor="@color/colorInHome"
         android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
-
-    <Button
-        android:id="@+id/result_button_id"
-        android:layout_width="211dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
-        android:text="Result"
-        android:textAlignment="center"
-        android:background="#41000000"
-        android:textColor="@color/colorInHome"
-        android:textAllCaps="false"
-        android:textSize="30dp"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
 
     <ImageButton
         android:id="@+id/onPlay_id"
@@ -91,13 +73,16 @@
         android:layout_marginBottom="256dp"
         android:background="@color/none"
         android:tint="@color/colorInHome"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/view4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        app:srcCompat="    @android:drawable/ic_media_pause
+" />
+
 
     <ImageButton
         android:id="@+id/onStop_id"
@@ -107,7 +92,7 @@
         android:tint="@color/colorInHome"
         app:layout_constraintEnd_toEndOf="@+id/onPlay_id"
         app:layout_constraintTop_toTopOf="@+id/onPlay_id"
-        app:srcCompat="@android:drawable/ic_media_pause" />
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -118,10 +103,23 @@
         android:tint="@color/colorInHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toEndOf="@+id/onStop_id"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
+    <Button
+        android:id="@+id/skipToResult_button_id"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@color/lastCardButtonColor"
+        android:text="Skip"
+        android:textAllCaps="false"
+        android:textColor="@color/colorInHome"
+        android:textSize="30dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintStart_toEndOf="@+id/view4" />
 </android.support.constraint.ConstraintLayout>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 import org.w3c.dom.Text;
 
@@ -54,6 +55,7 @@ public class Game  extends AppCompatActivity {
     private static Player players[]= new Player[maxNumOfPlayers];
     private static ArrayList<String>checkedCategories = new ArrayList<String>();
     private static ArrayList<String>categories        = new ArrayList<String>();
+    private static HashMap<String, ArrayList<String>> catLocations1 = new HashMap<>();
     private static int numOfCategories;// store actual size of categories
     private static int numOfLocations;// store actual size of all categories
     private static String catLocations [][] = new String[maxNumOfCategories][maxNumOfLocations];
@@ -88,21 +90,6 @@ public class Game  extends AppCompatActivity {
 
      */
 
-    // transfer data and navigate to the unknown card activity (intents and events)
-    public static Intent generateGameIntent(Context packageContext, Class<?> cls) {
-
-
-
-        generateRandomInfo();
-
-        Intent toUnknownCard = new Intent(packageContext, cls);
-        return toUnknownCard;
-
-
-
-    }
-
-
 
 
 
@@ -120,14 +107,14 @@ public class Game  extends AppCompatActivity {
         Random rand = new Random();
         for (int i = 0; i < numOfPlayers; i++) {
 
-            players[i] = new Player("player" + (i + 1), "local");
+            players[i] = new Player("Player " + (i + 1), Player.PLAYER_ROLE_LOCAL);
         }
 
         int x = 0;
         while (x < numOfSpies) {
             int i = rand.nextInt(numOfPlayers);
-            if (!players[i].getRole().equals("spy")) {
-                players[i].setRole("spy");
+            if (!players[i].getRole().equals(Player.PLAYER_ROLE_SPY)) {
+                players[i].setRole(Player.PLAYER_ROLE_SPY);
                 x++;
             }
 
@@ -150,8 +137,6 @@ public class Game  extends AppCompatActivity {
         locationsIndex = rand.nextInt(numOfLocations);
 
 
-
-
     }
 
 
@@ -167,8 +152,8 @@ public class Game  extends AppCompatActivity {
         numOfSpies      = 1;
         time = 1;
 
-        spyPlayerNote = "Try to Understand what location the locals are talking about";
-        localPlayerNote = "u are Local\n\nAll players except the Spy know this location.\nAsk the other players questions\nto figure out who of them Spy.";
+        spyPlayerNote   = "Try to know what location locals are talking about";
+        localPlayerNote = "You are local ask questions to know the spy";
 
 
         // depend on database
@@ -221,7 +206,7 @@ public class Game  extends AppCompatActivity {
 
                 else {
 
-                    Toast.makeText(players_txt.getContext(), "You Over Maximum Number Of Player", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(players_txt.getContext(), "You reached max num of players", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -237,19 +222,19 @@ public class Game  extends AppCompatActivity {
                     {
                         numOfPlayers--;
                         players_txt.setText(String.valueOf(numOfPlayers));
+                    }else{
+                        Toast.makeText(plus_spy.getContext(), "Num of spies must be less than half num of players", Toast.LENGTH_SHORT).show();
+
                     }
                 }
-                /*
-                 * 8 8-1= 7
-                 *
-                 *
-                 *
-                 * */
                 else {
                     if (numOfSpies<=(numOfPlayers-1)/2)
                     {
                         numOfPlayers--;
                         players_txt.setText(String.valueOf(numOfPlayers));
+                    }else{
+                        Toast.makeText(plus_spy.getContext(), "Num of spies must be less than half num of players", Toast.LENGTH_SHORT).show();
+
                     }
 
                 }
@@ -274,7 +259,7 @@ public class Game  extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(plus_spy.getContext(), "You Over Number Of spies According To Number Of Players ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(plus_spy.getContext(), "Num of spies must be less than half num of players", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else
@@ -286,7 +271,7 @@ public class Game  extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(plus_spy.getContext(), "You Over Number Of spies According To Number Of Players ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(plus_spy.getContext(), "Num of spies must be less than half num of players", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -304,6 +289,9 @@ public class Game  extends AppCompatActivity {
                 if(numOfSpies>1) {
                     numOfSpies--;
                     spies.setText(String.valueOf(numOfSpies));
+                }else{
+                    Toast.makeText(Time.getContext(), "you reached minimum num of spies", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -317,7 +305,7 @@ public class Game  extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(Time.getContext(), "Time Shouldnot Over 15 Minutes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Time.getContext(), "you reached max time", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -325,9 +313,12 @@ public class Game  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 time= Integer.parseInt(Time.getText().toString());
-                if (time>3) {
+                if (time>1) {
                     time--;
                     Time.setText(String.valueOf(time));
+                }else{
+                    Toast.makeText(Time.getContext(), "you reached minimum time", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -353,7 +344,7 @@ public class Game  extends AppCompatActivity {
 
 
                 }
-                Toast.makeText(countries.getContext(), "test", Toast.LENGTH_LONG).show();
+
 
             }
         });
@@ -425,28 +416,7 @@ public class Game  extends AppCompatActivity {
                 }
             }
         });
-        // start game
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-               // System.out.println("Categories = "+checkedCategories.size());
-                if (checkedCategories.size()>0)
-                {
-                    // change background color of start button
-                    start.setBackgroundColor(start.getResources().getColor(R.color.valid));
-                    generateRandomInfo();
-                    Intent i= generateGameIntent(start.getContext(), tapActivtiy.class);
-                    start.getContext().startActivity(i);
-                }
-                else {
-                    Toast.makeText(start.getContext(), "Choose At least One Category ", Toast.LENGTH_SHORT).show();
-                }
-
-
-
-            }
-        });
 
     }
 
