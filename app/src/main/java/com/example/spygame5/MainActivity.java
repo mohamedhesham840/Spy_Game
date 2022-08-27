@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         rules_tv= findViewById(R.id.rules_id) ;
         audioPause_tv= findViewById(R.id.audioPause_id);
         audioPlay_tv =findViewById(R.id.audioPlay_id);
+
+        // to display the correct icon
         if(audioPlaying == true){
             audioPause_tv.setVisibility(View.INVISIBLE);
             audioPlay_tv.setVisibility(View.VISIBLE);

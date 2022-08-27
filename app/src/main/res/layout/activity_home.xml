@@ -122,13 +122,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.279" />
+            app:layout_constraintVertical_bias="0.245" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="276dp"
+            android:layout_marginTop="244dp"
             android:text="Number of spies"
             android:textColor="@color/colorInHome"
             android:textSize="27dp"
@@ -166,7 +166,7 @@
             app:layout_constraintHorizontal_bias="0.224"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.215" />
+            app:layout_constraintVertical_bias="0.182" />
 
         <Button
             android:id="@+id/start_btn_id"
@@ -195,14 +195,28 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numOfPlayers_id"
-            app:layout_constraintVertical_bias="0.173" />
+            app:layout_constraintVertical_bias="0.134" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="168dp"
             android:layout_height="39dp"
-            android:layout_marginTop="408dp"
+            android:layout_marginTop="368dp"
             android:text="Time"
+            android:textColor="@color/colorInHome"
+            android:textSize="27dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="168dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="496dp"
+            android:text="Categories"
             android:textColor="@color/colorInHome"
             android:textSize="27dp"
             android:textStyle="italic"
@@ -215,7 +229,6 @@
             android:id="@+id/timer_id"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
             android:layout_marginEnd="12dp"
             android:background="@color/none"
             android:text="1"
@@ -224,8 +237,8 @@
             android:textSize="38dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/numOfSpies_id"
-            app:layout_constraintVertical_bias="0.008" />
+            app:layout_constraintTop_toBottomOf="@+id/numOfSpies_id"
+            app:layout_constraintVertical_bias="0.217" />
 
         <CheckBox
             android:id="@+id/checkBox1_id"
@@ -235,12 +248,10 @@
             android:checked="false"
             android:text="Countries"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox2_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintHorizontal_bias="0.239"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <CheckBox
             android:id="@+id/checkBox2_id"
@@ -250,24 +261,23 @@
             android:checked="false"
             android:text="Places"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox3_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.239"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox1_id" />
 
         <CheckBox
             android:id="@+id/checkBox4_id"
             android:layout_width="110dp"
             android:layout_height="27dp"
-            android:layout_marginBottom="20dp"
             android:buttonTint="@color/colorInHome"
             android:checked="false"
             android:text="Geography"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/start_btn_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.239"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox3_id" />
 
         <CheckBox
             android:id="@+id/checkBox3_id"
@@ -277,10 +287,10 @@
             android:checked="false"
             android:text="Objects"
             android:textColor="@color/color2"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox4_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.146"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.239"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox2_id" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
