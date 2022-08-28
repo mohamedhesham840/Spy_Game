@@ -1,6 +1,7 @@
 package com.example.spygame5;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,11 +24,18 @@ public class FinalCardSpyName extends AppCompatActivity {
     private ArrayList<String> spies=new ArrayList<>();
     // all players list
     private Player player[] =Game.getPlayers();
+    MediaPlayer resultMedia;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_card_spy_name);
         getSupportActionBar().hide();   // make the app full screen
+
+
+        if(timerActivity.audioState){
+            resultMedia = MediaPlayer.create(getBaseContext(), R.raw.result);
+            resultMedia.start();
+        }
 
         // inflate
         resultMessage_tv  = findViewById(R.id.resultHeader_id);;
@@ -61,6 +69,12 @@ public class FinalCardSpyName extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getBaseContext(),HomeActivity.class);
+                if(timerActivity.audioState) {
+                    resultMedia.release();
+                    resultMedia = null;
+                    MainActivity.audioPlay();
+
+                }
                 startActivity(i);
             }
         });

@@ -22,7 +22,7 @@ public class timerActivity extends AppCompatActivity {
     private ImageButton  stop_timer ;
     private Button  skipToResult_btn;
     private boolean timerRunning;
-
+    public static boolean audioState =false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,15 @@ public class timerActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // make the app full screen
 
         // stop and release media player
+        if(MainActivity.audioPlaying == true){
+            Toast.makeText(this, "Sound has stopped, so that players can talk", Toast.LENGTH_SHORT).show();
+        }
         MainActivity.audioStop();
 
-        timerRunning   = false;
 
+//        timerRunning   = false;
+        Intent extra = getIntent();
+        audioState = extra.getBooleanExtra("audio", false);
         // inflate
         Time       = Game.getTime()*60*1000;
         timer_view =findViewById(R.id.textView3);

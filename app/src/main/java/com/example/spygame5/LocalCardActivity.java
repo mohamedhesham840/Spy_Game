@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LocalCardActivity extends AppCompatActivity {
 
@@ -15,6 +16,8 @@ public class LocalCardActivity extends AppCompatActivity {
     private TextView playerNote_tv;
     private TextView playerRule_tv;
     private ImageView localBackHome_imgView;
+    private ImageView audioPlay_tv;
+    private ImageView audioPause_tv;
 
     // store getIntExtra content(player index)
     private int index ;
@@ -36,7 +39,10 @@ public class LocalCardActivity extends AppCompatActivity {
         getSupportActionBar().hide();   // make the app full screen
 
 
+
         // inflate
+        audioPlay_tv  = findViewById(R.id.localAudioPlay_id);
+        audioPause_tv = findViewById(R.id.localAudioPause_id);
         next_btn     = findViewById(R.id.localNext_button_id);
         playerNote_tv= findViewById(R.id.localNote_textView_id);
         playerRule_tv= findViewById(R.id.localRule_textView_id);
@@ -46,8 +52,23 @@ public class LocalCardActivity extends AppCompatActivity {
         index = data.getIntExtra(tapActivtiy.PLAYER_INDEX, -1);
 
 
+
+
+
         // check if getIntExtra return correct data or not
         if(index != -1) {
+
+
+
+            // sound buttons
+            if(MainActivity.audioPlaying){
+
+                audioPlay_tv.setVisibility(View.VISIBLE);
+                audioPause_tv.setVisibility(View.INVISIBLE);
+            }else{
+                audioPlay_tv.setVisibility(View.INVISIBLE);
+                audioPause_tv.setVisibility(View.VISIBLE);
+            }
 
             //display messages for the player
             playerRule_tv.setText(Game.getRandomLocation());
@@ -55,6 +76,25 @@ public class LocalCardActivity extends AppCompatActivity {
 
 
             //----------------------------events----------------------------
+
+            audioPlay_tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    audioPlay_tv.setVisibility(View.INVISIBLE);
+                    audioPause_tv.setVisibility(View.VISIBLE);
+                    MainActivity.audioPause();
+
+                }
+            });
+            audioPause_tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    audioPlay_tv.setVisibility(View.VISIBLE);
+                    audioPause_tv.setVisibility(View.INVISIBLE);
+                    MainActivity.audioPlay();
+                }
+            });
+
             localBackHome_imgView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

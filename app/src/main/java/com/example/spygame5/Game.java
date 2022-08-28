@@ -44,8 +44,7 @@ import java.util.Random;
  *
  */
 public class Game  extends AppCompatActivity {
-    // 1
-    // finals
+
     // these attributes for array declaration
     private static final int maxNumOfPlayers = 20;
 
@@ -409,10 +408,13 @@ public class Game  extends AppCompatActivity {
 
     public static void prepareElements(TextView players_veiw,TextView spies_veiw,TextView time_veiw, CheckBox checkBox1, CheckBox checkBox2, CheckBox checkBox3, CheckBox checkBox4 )
     {
+
+
         checkedCategories.clear();
         players_veiw.setText(String.valueOf(numOfPlayers));
         spies_veiw.setText(String.valueOf(numOfSpies));
         time_veiw.setText(String.valueOf(time));
+
         checkBox1.setText(categories.get(0));
         checkBox2.setText(categories.get(1));
         checkBox3.setText(categories.get(2));

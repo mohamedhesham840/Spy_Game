@@ -1,5 +1,6 @@
 package com.example.spygame5;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -15,16 +16,20 @@ public class MainActivity extends AppCompatActivity {
 
     //declarations
     private ImageView info_imv;
-    private  ImageView log_imv;
+    private ImageView log_imv;
     private TextView  rules_tv;
 
     private boolean   visible = false; // for appear/disappear rules text view
+
+    // nav
+    public static boolean called = false;
 
     // audio
     private  static MediaPlayer mediaPlayer;
     private static ImageView audioPlay_tv;
     private static ImageView audioPause_tv;
     static boolean audioPlaying = false;
+    static Context base;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +41,29 @@ public class MainActivity extends AppCompatActivity {
         info_imv= findViewById(R.id.info_id);
         log_imv = findViewById(R.id.log_id);
         rules_tv= findViewById(R.id.rules_id) ;
-        audioPause_tv= findViewById(R.id.audioPause_id);
+        audioPause_tv = findViewById(R.id.audioPause_id);
         audioPlay_tv =findViewById(R.id.audioPlay_id);
+        base = getBaseContext();
 
         // to display the correct icon
-        if(audioPlaying == true){
+        if(audioPlaying == true) {
             audioPause_tv.setVisibility(View.INVISIBLE);
             audioPlay_tv.setVisibility(View.VISIBLE);
         }
+
 
         // events
         // navigate to home activity
         log_imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getBaseContext(),HomeActivity.class);
-                startActivity(i);
-
+                if(!called) {
+                    Intent i = new Intent(getBaseContext(), HomeActivity.class);
+                    startActivity(i);
+                }else{
+                    setResult(1);
+                    finish();
+                }
             }
         });
 
@@ -75,16 +86,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // audio
-        audioStop();
+        audioPlay_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                audioPause();
+            }
+        });
+        audioPause_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                audioPlay();
+            }
+        });
+
 
 
 
     }
 
-    public static void audioPlay(View v){
+    public static void audioPlay(){
         if(mediaPlayer == null){
-            mediaPlayer = MediaPlayer.create(v.getContext(), R.raw.audio);
+            mediaPlayer = MediaPlayer.create(base, R.raw.audio);
         }
         mediaPlayer.start();
         audioPause_tv.setVisibility(View.INVISIBLE);
@@ -95,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void audioPause(View v){
+    public static void audioPause(){
     if(mediaPlayer != null){
         mediaPlayer.pause();
         audioPause_tv.setVisibility(View.VISIBLE);

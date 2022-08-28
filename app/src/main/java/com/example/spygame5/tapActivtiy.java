@@ -25,7 +25,8 @@ public class tapActivtiy extends AppCompatActivity {
     private   Button displayDetail_btn;
     private   TextView playerName_tv;
     private ImageView tapBackHome_imgView;
-
+    static ImageView audioPlay_tv;
+    static ImageView audioPause_tv;
 
     // put extra
     public static final String PLAYER_INDEX = "player index";
@@ -40,9 +41,22 @@ public class tapActivtiy extends AppCompatActivity {
 
 
         // inflate
+        audioPlay_tv = findViewById(R.id.tapAudioPlay_id);
+        audioPause_tv = findViewById(R.id.tapAudioPause_id);
         displayDetail_btn = findViewById(R.id.displayDetail_button_id);
         playerName_tv   = findViewById(R.id.playerName_textView_id);
         tapBackHome_imgView = findViewById(R.id.tapBackHome_imgView_id);
+
+        // sound buttons
+        if(MainActivity.audioPlaying){
+
+            audioPlay_tv.setVisibility(View.VISIBLE);
+            audioPause_tv.setVisibility(View.INVISIBLE);
+        }else{
+            audioPlay_tv.setVisibility(View.INVISIBLE);
+            audioPause_tv.setVisibility(View.VISIBLE);
+        }
+
 
 
         // refer to first player
@@ -53,6 +67,27 @@ public class tapActivtiy extends AppCompatActivity {
 
 
         //----------------------------events----------------------------
+
+
+        audioPlay_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                audioPlay_tv.setVisibility(View.INVISIBLE);
+                audioPause_tv.setVisibility(View.VISIBLE);
+                MainActivity.audioPause();
+
+            }
+        });
+        audioPause_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                audioPlay_tv.setVisibility(View.VISIBLE);
+                audioPause_tv.setVisibility(View.INVISIBLE);
+                MainActivity.audioPlay();
+            }
+        });
+
+
         tapBackHome_imgView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +142,7 @@ public class tapActivtiy extends AppCompatActivity {
             }
             else{
                 Intent toTimerActivity = new Intent(getBaseContext(), timerActivity.class);
+                toTimerActivity.putExtra("audio", MainActivity.audioPlaying);
                 startActivity(toTimerActivity);
                 finish();// close the activity
 

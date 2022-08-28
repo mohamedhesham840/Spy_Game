@@ -16,6 +16,9 @@ public class spyCardActivity extends AppCompatActivity {
     private TextView playerNote_tv;
     private TextView playerRule_tv;
     private ImageView spyBackHome_imgView;
+    private ImageView audioPlay_tv;
+    private ImageView audioPause_tv;
+
 
     // store getIntExtra content(player index)
     private int index;
@@ -36,9 +39,9 @@ public class spyCardActivity extends AppCompatActivity {
         getSupportActionBar().hide();   // make the app full screen
 
         // inflate
+        audioPlay_tv  = findViewById(R.id.spyAudioPlay_id);
+        audioPause_tv = findViewById(R.id.spyAudioPause_id);
         next_btn     = findViewById(R.id.spyNext_button_id);
-//        playerNote_tv= findViewById(R.id.spyNote_textView_id);
-//        playerRule_tv= findViewById(R.id.spyRule_textView_id);
         spyBackHome_imgView = findViewById(R.id.spyBackHome_imgView_id);
 
         // used to get data ( we need index from the previous activity)
@@ -49,12 +52,41 @@ public class spyCardActivity extends AppCompatActivity {
         if(index != -1) {
 
 
+            // sound buttons
+            if(MainActivity.audioPlaying){
+
+                audioPlay_tv.setVisibility(View.VISIBLE);
+                audioPause_tv.setVisibility(View.INVISIBLE);
+            }else{
+                audioPlay_tv.setVisibility(View.INVISIBLE);
+                audioPause_tv.setVisibility(View.VISIBLE);
+            }
+
             //messages for the player
 //            playerRule_tv.setText("u are a spy"); // temp
 //            playerNote_tv.setText(Game.getSpyPlayerNote());
 
 
             //----------------------------events----------------------------
+
+            audioPlay_tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    audioPlay_tv.setVisibility(View.INVISIBLE);
+                    audioPause_tv.setVisibility(View.VISIBLE);
+                    MainActivity.audioPause();
+
+                }
+            });
+            audioPause_tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    audioPlay_tv.setVisibility(View.VISIBLE);
+                    audioPause_tv.setVisibility(View.INVISIBLE);
+                    MainActivity.audioPlay();
+                }
+            });
+
             // back to home activity
             spyBackHome_imgView.setOnClickListener(new View.OnClickListener() {
                 @Override
