@@ -43,10 +43,13 @@ public class FinalCardSpyName extends AppCompatActivity {
         listView          = findViewById(R.id.result_listView_id);
 
         // choose between two messages
-        if(Game.getNumOfSpies()>1)
-            resultMessage_tv.setText("Spies are");
-        else
-            resultMessage_tv.setText("Spy is");
+//        if(Game.getNumOfSpies()>1)
+//            resultMessage_tv.setText("Spies are");
+//        else
+//            resultMessage_tv.setText("Spy is");
+
+            resultMessage_tv.setText("Spy List");
+
 
         // put spy players on spies list
         for(int i=0;i<Game.getNumOfPlayers();i++){

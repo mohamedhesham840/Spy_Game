@@ -6,20 +6,34 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_png"
 
+
     android:scaleType="fitStart"
     tools:context=".MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#34000000"
+        android:background="#A3000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="1.0">
 
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="81dp"
+            android:layout_height="130dp"
+            android:tint="#4800C1FF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.56"
+            app:srcCompat="@drawable/spy9__" />
 
         <ImageButton
             android:id="@+id/audioPlay_id"
@@ -41,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:background="@color/color1"
+            android:background="@color/none"
             android:clickable="true"
             android:tint="@color/color2"
 
@@ -51,8 +65,8 @@
 
         <ImageView
             android:id="@+id/log_id"
-            android:layout_width="73dp"
-            android:layout_height="73dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
 
             android:clickable="true"
             android:outlineAmbientShadowColor="#BBB"
@@ -61,7 +75,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.516"
+            app:layout_constraintVertical_bias="0.476"
             app:srcCompat="@android:drawable/ic_lock_power_off" />
 
         <ImageButton
@@ -83,13 +97,13 @@
             android:id="@+id/imageView5"
             android:layout_width="160dp"
             android:layout_height="100dp"
-            android:tint="@color/color4"
+            android:tint="@color/color2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.704"
-            android:visibility="gone"
+            app:layout_constraintVertical_bias="0.717"
             app:srcCompat="@drawable/spy_game_5123bc7639324" />
 
         <TextView

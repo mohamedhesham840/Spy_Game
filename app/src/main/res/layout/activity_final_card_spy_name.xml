@@ -166,29 +166,30 @@
 
     <ListView
         android:id="@+id/result_listView_id"
-        android:layout_width="274dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="214dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="44dp"
         android:text="Player 3"
         android:textAlignment="center"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultHeader_id"
-        app:layout_constraintVertical_bias="0.0" />
+        android:divider="#00000000"
+
+        />
 
     <TextView
         android:id="@+id/resultHeader_id"
         android:layout_width="247dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Game Result"
+        android:layout_marginTop="100dp"
+        android:text="spy names"
         android:textAlignment="center"
         android:textColor="@color/colorInHome"
 
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

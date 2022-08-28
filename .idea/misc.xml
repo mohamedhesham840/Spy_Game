@@ -6,9 +6,9 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.297" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.297" />
         <entry key="app/src/main/res/layout/activity_final_card_spy_name.xml" value="0.35306650797526035" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2405982905982906" />
         <entry key="app/src/main/res/layout/activity_local_card.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/activity_spy_card.xml" value="0.23692679002413516" />
         <entry key="app/src/main/res/layout/activity_tap_activtiy.xml" value="0.26875" />
         <entry key="app/src/main/res/layout/activity_timer.xml" value="0.30973451327433627" />

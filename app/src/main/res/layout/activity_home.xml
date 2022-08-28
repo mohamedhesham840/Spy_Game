@@ -38,10 +38,10 @@
             android:tint="@color/color2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.681"
+            app:layout_constraintHorizontal_bias="0.699"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.099"
+            app:layout_constraintVertical_bias="0.095"
             app:srcCompat="@drawable/spy_game_5123bc7639324" />
 
         <ImageView
@@ -122,21 +122,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.319" />
+            app:layout_constraintVertical_bias="0.346" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
             android:text="Number of spies"
             android:textColor="@color/colorInHome"
             android:textSize="27dp"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintHorizontal_bias="0.218"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.426" />
 
         <Button
             android:id="@+id/playersPlus_id"
@@ -163,10 +164,10 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.224"
+            app:layout_constraintHorizontal_bias="0.244"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26" />
+            app:layout_constraintVertical_bias="0.29" />
 
         <Button
             android:id="@+id/start_btn_id"
@@ -195,35 +196,37 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numOfPlayers_id"
-            app:layout_constraintVertical_bias="0.116" />
+            app:layout_constraintVertical_bias="0.125" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="168dp"
             android:layout_height="39dp"
-            android:layout_marginTop="380dp"
             android:text="Time"
             android:textColor="@color/colorInHome"
             android:textSize="27dp"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintHorizontal_bias="0.195"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.564" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="168dp"
             android:layout_height="39dp"
-            android:layout_marginTop="484dp"
             android:text="Categories"
             android:textColor="@color/colorInHome"
             android:textSize="27dp"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.189"
+            app:layout_constraintHorizontal_bias="0.195"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.701" />
 
         <TextView
             android:id="@+id/timer_id"
@@ -238,7 +241,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numOfSpies_id"
-            app:layout_constraintVertical_bias="0.166" />
+            app:layout_constraintVertical_bias="0.174" />
 
         <CheckBox
             android:id="@+id/checkBox1_id"
